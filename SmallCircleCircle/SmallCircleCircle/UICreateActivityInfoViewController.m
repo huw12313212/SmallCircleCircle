@@ -43,7 +43,9 @@ UIGestureRecognizer *tapper;
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    
+    
+    
     [self.Description.layer  setBorderColor:[[[UIColor grayColor] colorWithAlphaComponent:0.25] CGColor]];
     [self.Description.layer setBorderWidth:1.0];
     self.Description.layer.cornerRadius = 5;
@@ -71,8 +73,10 @@ UIGestureRecognizer *tapper;
     
     
     [self.ScrollView setScrollEnabled:YES];
-    [self.ScrollView setContentSize:CGSizeMake(320,600)];
+    [self.ScrollView setContentSize:CGSizeMake(320,630)];
+    
     [super viewDidLoad];
+
 }
 
 - (void)datePickerValueChanged:(id)sender{

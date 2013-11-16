@@ -10,6 +10,11 @@
 
 @interface huwAppDelegate : UIResponder <UIApplicationDelegate>
 
++ (bool) isURL;
++ (int) getOpenId;
++ (void) clearURL;
+
+
 @property (strong, nonatomic) UIWindow *window;
 
 @end

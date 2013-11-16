@@ -49,4 +49,53 @@ const float FAKE_DELAY = 1000;
              @{@"id":@(5),@"name":@"包子團購3",@"status":@(ASSuccess)}];
 }
 
+
+-(int) CreateEntry:(NSString*)UserId :(NSDictionary*)ActivityDetail
+{
+    return 0;
+}
+
+-(void) CreateEntryAsync:(NSString*)UserId :(NSDictionary*)ActivityDetail :(void(^)(int,int)) callback
+{
+    
+}
+
+-(NSDictionary*)GetActivityDetail:(int)id
+{
+    return @{
+             @"id":@(id),
+             @"name":@"包子團購",
+             @"description":@"露天拍賣上的Mac比較便宜，但是要運費，一次訂超過十台可以免運，有興趣的++噢！",
+             @"url":@"http://tw.yahoo.com",
+             @"location":@"台大面交",
+             @"PS":@"限女生",
+             @"expireDate":@"2013/12/12 13:00:00",
+             @"constraint":
+                 @{
+                     @"itemNumber":@(10),
+                     @"moneyAmount":@(0)
+                 },
+             @"fee":
+                 @{
+                     @"feeAmount":@(3000),
+                     @"feeStyle":@"ShareByMoneyWeight"
+                 },
+             @"items":
+                 @[
+                  @{@"name":@"MacBook Air 13吋",@"price":@(33000)},
+                  @{@"name":@"iPhone 5s 土豪金",@"price":@(30000)},
+                 ],
+             @"tradeDates":
+                 @[
+                     @{@"date":@"2013/12/14 13:00:00",@"location":@"臺大小福"},
+                     @{@"date":@"2013/12/17 13:00:00",@"location":@"德田館Lab430"},
+                  ]
+             };
+}
+
+-(void)GetActivityDetailAsync : (int)id : (void(^)(int,NSDictionary*)) callback
+{
+    
+}
+
 @end

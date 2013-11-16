@@ -62,7 +62,7 @@
     int data =[self.ItemList count];
     data+=1;
     
-    NSLog(@"length %d",[self.ItemList count]);
+    //NSLog(@"length %d",[self.ItemList count]);
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
     return data;
@@ -95,7 +95,6 @@
 
 -(void)updateData
 {
-    NSLog(@"update Data");
     [self.tableView reloadData];
 }
 

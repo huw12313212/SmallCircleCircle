@@ -10,9 +10,59 @@
 
 @implementation huwAppDelegate
 
+static bool _isURL = false;
+static int _openID = -1;
+
++ (bool) isURL
+{
+    return _isURL;
+}
++ (int) getOpenId
+{
+    return _openID;
+}
+
++ (void) clearURL
+{
+    _openID = -1;
+    _isURL = false;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    return YES;
+}
+
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    // Handle url request.
+    
+    NSString* activityID = [[url absoluteString]substringFromIndex:6];
+
+    _isURL = YES;
+    int i =  [activityID integerValue];
+    _openID = i;
+    
+    //NSLog(@"testss");
+    
+    //UIViewController* mainController = self.window;
+    
+
+    UINavigationController* nowController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    
+    
+    [nowController.topViewController performSegueWithIdentifier:@"OpenURL" sender:self];
+    
+    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"URL Request" message:activityID delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //[alert show];
+    
+    
+    //huwAppDelegate.URLOpen = YES;
+   // self.URL_Open = YES;
+    //huwAppDelegate.URL_Open = YES;
+    
     return YES;
 }
 							
