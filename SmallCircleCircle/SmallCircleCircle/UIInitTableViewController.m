@@ -133,7 +133,17 @@ enum AcitivityType
             break;
         case ASSuccess:
             statusStr = @"成功";
-              cellType = @"SuccessActivity";
+            
+            
+            if(indexPath.section == Created)
+            {
+                cellType = @"SuccessActivity";
+            }
+            else if(indexPath.section == Join)
+            {
+                cellType = @"JoinedSuccessActivity";
+            }
+            
             break;
         case ASFailed:
             statusStr = @"流團";

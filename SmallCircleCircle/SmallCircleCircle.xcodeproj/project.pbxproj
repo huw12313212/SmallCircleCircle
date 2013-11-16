@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AAC3E4A183749710045391A /* UICreateActivityInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC3E49183749710045391A /* UICreateActivityInfoViewController.m */; };
+		8AAC3E4D183775390045391A /* UIFeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC3E4C183775390045391A /* UIFeeViewController.m */; };
 		8ACDA1A018368ED200120873 /* UIInitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDA19F18368ED200120873 /* UIInitTableViewController.m */; };
 		8ACDA1A61836945000120873 /* FakeDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDA1A51836945000120873 /* FakeDB.m */; };
 		8AEA1E351835E6F2003EA73D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AEA1E341835E6F2003EA73D /* Foundation.framework */; };
@@ -35,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8AAC3E48183749710045391A /* UICreateActivityInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICreateActivityInfoViewController.h; sourceTree = "<group>"; };
+		8AAC3E49183749710045391A /* UICreateActivityInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICreateActivityInfoViewController.m; sourceTree = "<group>"; };
+		8AAC3E4B183775390045391A /* UIFeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFeeViewController.h; sourceTree = "<group>"; };
+		8AAC3E4C183775390045391A /* UIFeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFeeViewController.m; sourceTree = "<group>"; };
 		8ACDA19E18368ED200120873 /* UIInitTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIInitTableViewController.h; sourceTree = "<group>"; };
 		8ACDA19F18368ED200120873 /* UIInitTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIInitTableViewController.m; sourceTree = "<group>"; };
 		8ACDA1A3183691F100120873 /* DBQueryInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBQueryInterface.h; sourceTree = "<group>"; };
@@ -83,6 +89,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8AAC3E431837491F0045391A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8ACDA19E18368ED200120873 /* UIInitTableViewController.h */,
+				8ACDA19F18368ED200120873 /* UIInitTableViewController.m */,
+				8AAC3E48183749710045391A /* UICreateActivityInfoViewController.h */,
+				8AAC3E49183749710045391A /* UICreateActivityInfoViewController.m */,
+				8AAC3E4B183775390045391A /* UIFeeViewController.h */,
+				8AAC3E4C183775390045391A /* UIFeeViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8AAC3E441837492D0045391A /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				8AEA1E431835E6F2003EA73D /* huwAppDelegate.h */,
+				8AEA1E441835E6F2003EA73D /* huwAppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
 		8ACDA1A1183690E400120873 /* FakeDB */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,15 +161,13 @@
 		8AEA1E3A1835E6F2003EA73D /* SmallCircleCircle */ = {
 			isa = PBXGroup;
 			children = (
+				8AAC3E441837492D0045391A /* AppDelegate */,
+				8AAC3E431837491F0045391A /* ViewControllers */,
 				8ACDA1A2183690F200120873 /* DatabaseInterface */,
 				8ACDA1A1183690E400120873 /* FakeDB */,
-				8AEA1E431835E6F2003EA73D /* huwAppDelegate.h */,
-				8AEA1E441835E6F2003EA73D /* huwAppDelegate.m */,
 				8AEA1E461835E6F2003EA73D /* Main.storyboard */,
 				8AEA1E4C1835E6F2003EA73D /* Images.xcassets */,
 				8AEA1E3B1835E6F2003EA73D /* Supporting Files */,
-				8ACDA19E18368ED200120873 /* UIInitTableViewController.h */,
-				8ACDA19F18368ED200120873 /* UIInitTableViewController.m */,
 			);
 			path = SmallCircleCircle;
 			sourceTree = "<group>";
@@ -274,8 +300,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ACDA1A61836945000120873 /* FakeDB.m in Sources */,
+				8AAC3E4D183775390045391A /* UIFeeViewController.m in Sources */,
 				8AEA1E411835E6F2003EA73D /* main.m in Sources */,
 				8AEA1E451835E6F2003EA73D /* huwAppDelegate.m in Sources */,
+				8AAC3E4A183749710045391A /* UICreateActivityInfoViewController.m in Sources */,
 				8ACDA1A018368ED200120873 /* UIInitTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

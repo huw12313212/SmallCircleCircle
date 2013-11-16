@@ -23,6 +23,8 @@ enum ActivityStatus
     ASSuccess,
 };
 
+
+
 @protocol DBQueryInterface <NSObject>
 
 @required
