@@ -50,19 +50,13 @@ static int _openID = -1;
     //UIViewController* mainController = self.window;
     
 
-    
     UINavigationController* nowController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
     
+
     
+    [nowController popToRootViewControllerAnimated:false];
     [nowController.topViewController performSegueWithIdentifier:@"OpenURL" sender:self];
-    
-    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"URL Request" message:activityID delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    //[alert show];
-    
-    
-    //huwAppDelegate.URLOpen = YES;
-   // self.URL_Open = YES;
-    //huwAppDelegate.URL_Open = YES;
+
     
     return YES;
 }
