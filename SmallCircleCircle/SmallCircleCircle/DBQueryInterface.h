@@ -29,16 +29,15 @@ enum ActivityStatus
 
 @required
 
--(NSArray*) GetCreatedActivity;
--(void) GetCreatedActivityAsync:(void(^)(int,NSArray*)) callback;
+-(NSArray*) GetCreatedActivity : (NSString*)facebookID ;
+-(NSArray*) GetJoinedActivity : (NSString*)facebookID ;
 
--(NSArray*) GetJoinedActivity;
--(void) GetJoinedActivityAsync:(void(^)(int,NSArray*)) callback;
 
--(int) CreateEntry:(NSString*)UserId :(NSDictionary*)ActivityDetail;
--(void) CreateEntryAsync:(NSString*)UserId :(NSDictionary*)ActivityDetail :(void(^)(int,int)) callback;
+-(NSDictionary*)GetActivityDetail:(int)activityID;
 
--(NSDictionary*)GetActivityDetail:(int)id;
--(void)GetActivityDetailAsync : (int)id : (void(^)(int,NSDictionary*)) callback;
+
+-(int) CreateActivity:(NSString*)facebookID :(NSDictionary*)ActivityDetail;
+-(int)JoinActivity:(NSString*)facebookID :(NSString*)ActivityID :(NSDictionary*)Detail;
+
 
 @end

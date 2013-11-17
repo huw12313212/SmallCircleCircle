@@ -23,26 +23,17 @@ const float FAKE_DELAY = 1000;
     return instance;
 }
 
--(void) GetCreatedActivityAsync:(void(^)(int,NSArray*)) callback
-{
-    
-}
-
--(void) GetJoinedActivityAsync:(void(^)(int,NSArray*)) callback
-{
-    
-}
 
 
 
--(NSArray*) GetCreatedActivity
+-(NSArray*) GetCreatedActivity :(NSString*)facebookID
 {
     return @[@{@"id":@(0),@"name":@"小熊團購1",@"status":@(ASRecruting)},
              @{@"id":@(1),@"name":@"小熊團購2",@"status":@(ASFailed)},
              @{@"id":@(2),@"name":@"小熊團購3",@"status":@(ASSuccess)}];
 }
 
--(NSArray*) GetJoinedActivity
+-(NSArray*) GetJoinedActivity :(NSString*)facebookID
 {
     return @[@{@"id":@(3),@"name":@"包子團購1",@"status":@(ASRecruting)},
              @{@"id":@(4),@"name":@"包子團購2",@"status":@(ASFailed)},
@@ -50,20 +41,26 @@ const float FAKE_DELAY = 1000;
 }
 
 
--(int) CreateEntry:(NSString*)UserId :(NSDictionary*)ActivityDetail
+-(int) CreateActivity:(NSString*)facebookID :(NSDictionary*)ActivityDetail
 {
-    return 0;
-}
-
--(void) CreateEntryAsync:(NSString*)UserId :(NSDictionary*)ActivityDetail :(void(^)(int,int)) callback
-{
+    NSLog(@"CreateActivity : %@",ActivityDetail);
     
+    return DBsuccess;
 }
 
--(NSDictionary*)GetActivityDetail:(int)id
+
+-(int)JoinActivity:(NSString*)facebookID :(NSString*)ActivityID :(NSDictionary*)Detail;
+{
+    NSLog(@"JoinActivity : %@",Detail);
+    
+    return DBsuccess;
+}
+
+
+-(NSDictionary*)GetActivityDetail:(int)activityID
 {
     return @{
-             @"id":@(id),
+             @"id":@(activityID),
              @"name":@"包子團購",
              @"description":@"露天拍賣上的Mac比較便宜，但是要運費，一次訂超過十台可以免運，有興趣的++噢！",
              @"url":@"http://tw.yahoo.com",
@@ -94,10 +91,6 @@ const float FAKE_DELAY = 1000;
              };
 }
 
--(void)GetActivityDetailAsync : (int)id : (void(^)(int,NSDictionary*)) callback
-{
-    
-}
 
 
 @end

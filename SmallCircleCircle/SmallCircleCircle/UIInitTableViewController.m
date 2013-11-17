@@ -35,8 +35,8 @@ enum AcitivityType
     if (self) {
         
         self.Database = [FakeDB GetDBInstance];
-        self.CreatedAcitivities = [self.Database GetCreatedActivity];
-        self.JoinedAcitivities = [self.Database GetJoinedActivity];
+        self.CreatedAcitivities = [self.Database GetCreatedActivity : 0];
+        self.JoinedAcitivities = [self.Database GetJoinedActivity : 0];
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add:)];
 
