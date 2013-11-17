@@ -151,7 +151,7 @@ UIGestureRecognizer *tapper;
     
     
     [self.ScrollView setScrollEnabled:YES];
-    [self.ScrollView setContentSize:CGSizeMake(320,700)];
+    [self.ScrollView setContentSize:CGSizeMake(320,800)];
     
     [super viewDidLoad];
 
