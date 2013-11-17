@@ -247,18 +247,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="參加團購" id="uiD-Tg-UFr">
                         <barButtonItem key="backBarButtonItem" title="Back" id="KtH-4W-Tk8"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="r5g-8V-k9I">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UKd-5d-DJg">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Join">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="rt2-s8-AMM" kind="push" identifier="Next" id="QJc-lm-irb"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Join" id="F6k-fk-J0k">
+                            <connections>
+                                <segue destination="rt2-s8-AMM" kind="push" identifier="Next" id="lrV-zk-jWk"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -325,18 +317,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="訂購商品" id="BuM-IZ-Gmu">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="xVE-fY-1B1">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4YJ-bo-nbP">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="7KR-gB-3S5" kind="push" identifier="Next" id="gbj-ua-tmv"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="g87-ux-TEg">
+                            <connections>
+                                <segue destination="7KR-gB-3S5" kind="push" identifier="Next" id="mAo-x7-dg9"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -434,18 +418,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="結賬明細" id="5fc-hk-utu">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="y0O-aX-z1O">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZK5-Pj-n8O">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="OBf-77-O6p" kind="push" identifier="Next" id="CCv-h7-R1M"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Confirm" id="62S-CO-gFL">
+                            <connections>
+                                <segue destination="OBf-77-O6p" kind="push" identifier="Next" id="LnL-WF-Nw0"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -546,18 +522,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="聯絡資訊" id="TfN-j5-FpE">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Itd-wz-7nF">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Dlm-wF-Wws">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Finish">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="ClickFinish:" destination="Mya-Pu-dLb" eventType="touchUpInside" id="4Sw-qr-odH"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Finish" id="9sD-5U-dno">
+                            <connections>
+                                <action selector="ClickFinish:" destination="Mya-Pu-dLb" id="pg0-wh-1Ce"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -695,17 +663,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="建立團購" id="9RI-to-9LX">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="079-95-G4a">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FdF-fM-7OO">
-                                <rect key="frame" x="258" y="7" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="8EG-WX-lhJ" kind="push" id="ZFV-td-W81"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="OMq-4v-NdI">
+                            <connections>
+                                <segue destination="8EG-WX-lhJ" kind="push" identifier="Next" id="zS7-Yx-sXz"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -758,17 +719,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="出團條件" id="bk9-gN-CxP">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="P3k-H0-I1S">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wgk-SR-vTa">
-                                <rect key="frame" x="258" y="7" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="47e-B7-Q0h" kind="push" id="w09-IK-UgM"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Fhc-lz-LSU">
+                            <connections>
+                                <segue destination="47e-B7-Q0h" kind="push" identifier="Next" id="DfT-wf-WFr"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -804,18 +758,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="運費分攤" id="1h6-7E-a5l">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="umR-D2-bDA">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B4d-BB-NS7">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="0gG-gt-urB" kind="push" id="Pq9-F9-6fl"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="xeh-sG-Zbs">
+                            <connections>
+                                <segue destination="0gG-gt-urB" kind="push" identifier="Next" id="e5T-c2-ukr"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -886,18 +832,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="商品" id="9lw-xd-viw">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="6dE-AV-W7h">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aHC-bL-zDH">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="GP3-KW-RIE" kind="push" id="4bz-nU-1oz"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="G0l-2w-yzt">
+                            <connections>
+                                <segue destination="GP3-KW-RIE" kind="push" identifier="Next" id="HNy-80-4Kj"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -964,18 +902,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="領貨時段" id="3pg-zv-1uF">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="kXi-4M-yfB">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NsN-Qj-dHy">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Finish">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="PQE-C0-fiS" kind="push" id="gQ8-hb-KoB"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Finish" id="tCx-dz-04Q">
+                            <connections>
+                                <segue destination="PQE-C0-fiS" kind="push" identifier="Next" id="iQF-Nt-9Ow"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>

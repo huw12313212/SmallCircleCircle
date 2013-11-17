@@ -112,11 +112,8 @@
         newItemView.Entries = self.EntryList;
         newItemView.parentView = self;
         
-        NSLog(@"test");
         
     }
-    
-    NSLog(@"tes2t");
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
