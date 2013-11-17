@@ -50,6 +50,7 @@ static int _openID = -1;
     //UIViewController* mainController = self.window;
     
 
+    
     UINavigationController* nowController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
     
     

@@ -28,6 +28,7 @@ enum ActivityStatus
 @protocol DBQueryInterface <NSObject>
 
 @required
+
 -(NSArray*) GetCreatedActivity;
 -(void) GetCreatedActivityAsync:(void(^)(int,NSArray*)) callback;
 

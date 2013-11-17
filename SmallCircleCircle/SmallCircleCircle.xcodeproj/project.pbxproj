@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A57D1C21838758800A1CF55 /* UIJoinActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A57D1C11838758800A1CF55 /* UIJoinActivityViewController.m */; };
+		8A57D1C518388A1100A1CF55 /* UIItemAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A57D1C418388A1100A1CF55 /* UIItemAmountViewController.m */; };
+		8A57D1CB1838911200A1CF55 /* MyUIStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A57D1CA1838911200A1CF55 /* MyUIStepper.m */; };
+		8A57D1D11838A23000A1CF55 /* UICheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A57D1D01838A23000A1CF55 /* UICheckViewController.m */; };
 		8A62C25D18379EB40039E173 /* UIItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A62C25C18379EB40039E173 /* UIItemViewController.m */; };
 		8A62C2601837A9380039E173 /* UINewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A62C25F1837A9380039E173 /* UINewItemViewController.m */; };
 		8AAC3E4A183749710045391A /* UICreateActivityInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC3E49183749710045391A /* UICreateActivityInfoViewController.m */; };
@@ -42,6 +46,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A57D1C01838758800A1CF55 /* UIJoinActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIJoinActivityViewController.h; sourceTree = "<group>"; };
+		8A57D1C11838758800A1CF55 /* UIJoinActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIJoinActivityViewController.m; sourceTree = "<group>"; };
+		8A57D1C318388A1100A1CF55 /* UIItemAmountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemAmountViewController.h; sourceTree = "<group>"; };
+		8A57D1C418388A1100A1CF55 /* UIItemAmountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemAmountViewController.m; sourceTree = "<group>"; };
+		8A57D1C91838911200A1CF55 /* MyUIStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUIStepper.h; sourceTree = "<group>"; };
+		8A57D1CA1838911200A1CF55 /* MyUIStepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUIStepper.m; sourceTree = "<group>"; };
+		8A57D1CF1838A23000A1CF55 /* UICheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICheckViewController.h; sourceTree = "<group>"; };
+		8A57D1D01838A23000A1CF55 /* UICheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICheckViewController.m; sourceTree = "<group>"; };
 		8A62C25B18379EB40039E173 /* UIItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemViewController.h; sourceTree = "<group>"; };
 		8A62C25C18379EB40039E173 /* UIItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemViewController.m; sourceTree = "<group>"; };
 		8A62C25E1837A9380039E173 /* UINewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINewItemViewController.h; sourceTree = "<group>"; };
@@ -123,6 +135,14 @@
 				8AAECBEB1837DA9E0070806A /* UINewTradeDetailViewController.m */,
 				8AAECBED1837E8DF0070806A /* UICompleteViewController.h */,
 				8AAECBEE1837E8DF0070806A /* UICompleteViewController.m */,
+				8A57D1C01838758800A1CF55 /* UIJoinActivityViewController.h */,
+				8A57D1C11838758800A1CF55 /* UIJoinActivityViewController.m */,
+				8A57D1C318388A1100A1CF55 /* UIItemAmountViewController.h */,
+				8A57D1C418388A1100A1CF55 /* UIItemAmountViewController.m */,
+				8A57D1C91838911200A1CF55 /* MyUIStepper.h */,
+				8A57D1CA1838911200A1CF55 /* MyUIStepper.m */,
+				8A57D1CF1838A23000A1CF55 /* UICheckViewController.h */,
+				8A57D1D01838A23000A1CF55 /* UICheckViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -333,6 +353,8 @@
 			files = (
 				8ACDA1A61836945000120873 /* FakeDB.m in Sources */,
 				8AAC3E4D183775390045391A /* UIFeeViewController.m in Sources */,
+				8A57D1D11838A23000A1CF55 /* UICheckViewController.m in Sources */,
+				8A57D1C518388A1100A1CF55 /* UIItemAmountViewController.m in Sources */,
 				8A62C2601837A9380039E173 /* UINewItemViewController.m in Sources */,
 				8AEA1E411835E6F2003EA73D /* main.m in Sources */,
 				8AEA1E451835E6F2003EA73D /* huwAppDelegate.m in Sources */,
@@ -341,7 +363,9 @@
 				8AAECBEF1837E8DF0070806A /* UICompleteViewController.m in Sources */,
 				8A62C25D18379EB40039E173 /* UIItemViewController.m in Sources */,
 				8AAECBEC1837DA9E0070806A /* UINewTradeDetailViewController.m in Sources */,
+				8A57D1CB1838911200A1CF55 /* MyUIStepper.m in Sources */,
 				8ACDA1A018368ED200120873 /* UIInitTableViewController.m in Sources */,
+				8A57D1C21838758800A1CF55 /* UIJoinActivityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

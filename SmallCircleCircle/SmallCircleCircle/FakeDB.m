@@ -78,7 +78,7 @@ const float FAKE_DELAY = 1000;
              @"fee":
                  @{
                      @"feeAmount":@(3000),
-                     @"feeStyle":@"ShareByMoneyWeight"
+                     @"feeStyle":@"依金額比重平分"
                  },
              @"items":
                  @[
@@ -89,7 +89,8 @@ const float FAKE_DELAY = 1000;
                  @[
                      @{@"date":@"2013/12/14 13:00:00",@"location":@"臺大小福"},
                      @{@"date":@"2013/12/17 13:00:00",@"location":@"德田館Lab430"},
-                  ]
+                  ],
+             @"phone":@"0912345678"
              };
 }
 
@@ -97,5 +98,6 @@ const float FAKE_DELAY = 1000;
 {
     
 }
+
 
 @end
