@@ -69,8 +69,8 @@ const float FAKE_DELAY = 1000;
              @"expireDate":@"2013/12/12 13:00:00",
              @"constraint":
                  @{
-                     @"itemNumber":@(10),
-                     @"moneyAmount":@(0)
+                     @"type":@"總數量大於",
+                     @"amount":@(10)
                  },
              @"fee":
                  @{

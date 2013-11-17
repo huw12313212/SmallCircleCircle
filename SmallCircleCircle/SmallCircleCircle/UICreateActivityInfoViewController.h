@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UICreateActivityInfoViewController : UIViewController
-
+@property (nonatomic,strong)NSMutableDictionary* dictionary;
 @end

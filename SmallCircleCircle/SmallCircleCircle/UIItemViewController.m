@@ -8,6 +8,7 @@
 
 #import "UIItemViewController.h"
 #import "UINewItemViewController.h"
+#import "UITradeDetailViewController.h"
 
 @interface UIItemViewController ()
 
@@ -148,6 +149,17 @@
         UINewItemViewController* newItemView = segue.destinationViewController;
         newItemView.Items = self.ItemList;
         newItemView.parentView = self;
+        
+    }
+    else if([segue.identifier  isEqual: @"Next"])
+    {
+        UITradeDetailViewController *tradeDetail = segue.destinationViewController;
+        
+        [self.dictionary setObject:self.ItemList forKey:@"items"];
+        
+        tradeDetail.dictionary = self.dictionary;
+        
+         // NSLog(@"%@",self.dictionary);
         
     }
     

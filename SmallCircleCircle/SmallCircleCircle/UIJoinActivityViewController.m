@@ -70,7 +70,7 @@
     self.PS.text = self.data[@"PS"];
     
     
-    NSString* constraint = [NSString stringWithFormat:@"總數大於%@且金額大於%@",self.data[@"constraint"][@"itemNumber"],self.data[@"constraint"][@"moneyAmount"]];
+    NSString* constraint = [NSString stringWithFormat:@"%@%@",self.data[@"constraint"][@"type"],self.data[@"constraint"][@"amount"]];
     
     self.Constraint.text =constraint;
     

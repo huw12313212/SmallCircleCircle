@@ -8,10 +8,12 @@
 
 #import "UITradeDetailViewController.h"
 #import "UINewTradeDetailViewController.h"
+#import "FakeDB.h"
 
 @interface UITradeDetailViewController ()
 
 @property (strong,nonatomic)NSMutableArray* EntryList;
+@property (strong,nonatomic)NSObject<DBQueryInterface> *Database;
 
 @end
 
@@ -35,6 +37,8 @@
     {
         self.EntryList = [[NSMutableArray alloc]init];
     }
+    
+    self.Database = [FakeDB GetDBInstance];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -111,7 +115,13 @@
         UINewTradeDetailViewController* newItemView = segue.destinationViewController;
         newItemView.Entries = self.EntryList;
         newItemView.parentView = self;
+    }
+    else if([segue.identifier  isEqual: @"Next"])
+    {
+        [self.dictionary setObject:self.EntryList forKey:@"tradeDates"];
+        [self.Database CreateActivity:@"0" :self.dictionary];
         
+         // NSLog(@"%@",self.dictionary);
         
     }
     // Get the new view controller using [segue destinationViewController].
@@ -121,6 +131,8 @@
 
 -(void)updateData
 {
+    
+    
     [self.tableView reloadData];
 }
 

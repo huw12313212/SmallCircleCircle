@@ -12,4 +12,6 @@
 
 -(void)updateData;
 
+@property (nonatomic,strong)NSMutableDictionary* dictionary;
+
 @end
