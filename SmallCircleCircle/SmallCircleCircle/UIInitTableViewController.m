@@ -10,6 +10,7 @@
 #import "DBQueryInterface.h"
 #import "FakeDB.h"
 #import "UIJoinActivityViewController.h"
+#import "TabbarViewController.h"
 
 @interface UIInitTableViewController ()
 
@@ -222,14 +223,31 @@ enum AcitivityType
 
 
 #pragma mark - Navigation
-/*
-// In a story board-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqual:@"hostDetail"])
+    {
+        TabbarViewController *viewController = segue.destinationViewController;
+        NSIndexPath * path = [self.tableView indexPathForCell:sender];
+        NSString* ActivityID = self.CreatedAcitivities[path.row][@"id"];
+        
+        
+        NSDictionary* activityDetail = [self.Database GetActivityDetail:ActivityID];
+        NSArray* buyList = [self.Database GetBuyList:ActivityID];
+        
+        viewController.activityDetail = activityDetail;
+        viewController.buyList = buyList;
+        
+        
+        //NSLog(@"ActivityID %@",ActivityID);
+        //NSDictionary* activityData
+        
+        
+    }
+    
 }
-*/
+
 
 
 @end

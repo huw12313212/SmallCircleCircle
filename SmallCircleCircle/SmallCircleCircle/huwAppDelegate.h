@@ -11,7 +11,7 @@
 @interface huwAppDelegate : UIResponder <UIApplicationDelegate>
 
 + (bool) isURL;
-+ (int) getOpenId;
++ (NSString*) getOpenId;
 + (void) clearURL;
 
 

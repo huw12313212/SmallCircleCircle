@@ -43,7 +43,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="ds9-sL-Mr3" kind="push" id="YPx-KC-oux"/>
+                                    <segue destination="QyT-pp-WhN" kind="push" identifier="hostDetail" id="Hgx-uR-cM6"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="OtherActivity" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OtherActivity" id="y17-EC-KIT">
@@ -1131,21 +1131,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1513" y="-1308"/>
         </scene>
-        <!--View Controller - 統計資訊-->
-        <scene sceneID="4fP-F5-1wO">
-            <objects>
-                <viewController id="ds9-sL-Mr3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kx7-dT-eaS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="統計資訊" id="po8-No-66m"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hdz-3O-Cay" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7" y="715"/>
-        </scene>
         <!--View Controller - 取貨明細-->
         <scene sceneID="u5e-QY-TOE">
             <objects>
@@ -1159,7 +1144,57 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9N-H9-tKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="1427"/>
+            <point key="canvasLocation" x="-3" y="1445"/>
+        </scene>
+        <!--View Controller - 貨品總數-->
+        <scene sceneID="9YW-Qs-LaU">
+            <objects>
+                <viewController id="TNO-qg-y2R" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PhQ-iL-Yge">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="貨品總數" id="bca-y3-Jtw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bar-Nt-I2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="755"/>
+        </scene>
+        <!--Tabbar View Controller-->
+        <scene sceneID="CKv-cp-ZQH">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="QyT-pp-WhN" customClass="TabbarViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3he-Zc-5u2"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="t9r-2u-ZbO">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="TNO-qg-y2R" kind="relationship" relationship="viewControllers" id="RAS-Ce-ddR"/>
+                        <segue destination="bkj-B5-Wge" kind="relationship" relationship="viewControllers" id="VaR-VV-uyb"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l5c-xd-ZJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3" y="755"/>
+        </scene>
+        <!--View Controller - 取貨清單-->
+        <scene sceneID="uk3-Ym-wnZ">
+            <objects>
+                <viewController id="bkj-B5-Wge" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2SU-YJ-wBQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="取貨清單" id="KpY-j7-M28"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="joo-We-LDq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="523" y="1445"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rfg-ea-quG">

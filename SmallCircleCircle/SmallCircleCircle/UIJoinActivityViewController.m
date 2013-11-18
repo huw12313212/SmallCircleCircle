@@ -45,11 +45,11 @@
     self.DescriptionLabel.layer.cornerRadius = 5;
     self.DescriptionLabel.clipsToBounds = YES;
     self.Database = [FakeDB GetDBInstance];
-    int ActivityID = [huwAppDelegate getOpenId];
+    NSString* ActivityID = [huwAppDelegate getOpenId];
     [huwAppDelegate clearURL];
     self.data = [self.Database GetActivityDetail:ActivityID];
     
-    NSLog(@"%d",ActivityID);
+   // NSLog(@"%d",ActivityID);
     
     self.navigationItem.title = self.data[@"name"];
     

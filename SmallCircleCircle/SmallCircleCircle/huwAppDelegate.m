@@ -11,20 +11,20 @@
 @implementation huwAppDelegate
 
 static bool _isURL = false;
-static int _openID = -1;
+static NSString* _openID = @"-1";
 
 + (bool) isURL
 {
     return _isURL;
 }
-+ (int) getOpenId
++ (NSString*) getOpenId
 {
     return _openID;
 }
 
 + (void) clearURL
 {
-    _openID = -1;
+    _openID = @"-1";
     _isURL = false;
 }
 
@@ -42,8 +42,8 @@ static int _openID = -1;
     NSString* activityID = [[url absoluteString]substringFromIndex:6];
 
     _isURL = YES;
-    int i =  [activityID integerValue];
-    _openID = i;
+   // int i =  [activityID integerValue];
+    _openID = activityID;
     
     //NSLog(@"testss");
     

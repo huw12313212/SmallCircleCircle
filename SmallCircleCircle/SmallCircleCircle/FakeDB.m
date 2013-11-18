@@ -28,16 +28,16 @@ const float FAKE_DELAY = 1000;
 
 -(NSArray*) GetCreatedActivity :(NSString*)facebookID
 {
-    return @[@{@"id":@(0),@"name":@"小熊團購1",@"status":@(ASRecruting)},
-             @{@"id":@(1),@"name":@"小熊團購2",@"status":@(ASFailed)},
-             @{@"id":@(2),@"name":@"小熊團購3",@"status":@(ASSuccess)}];
+    return @[@{@"id":@"0",@"name":@"小熊團購1",@"status":@(ASRecruting)},
+             @{@"id":@"1",@"name":@"小熊團購2",@"status":@(ASFailed)},
+             @{@"id":@"2",@"name":@"小熊團購3",@"status":@(ASSuccess)}];
 }
 
 -(NSArray*) GetJoinedActivity :(NSString*)facebookID
 {
-    return @[@{@"id":@(3),@"name":@"包子團購1",@"status":@(ASRecruting)},
-             @{@"id":@(4),@"name":@"包子團購2",@"status":@(ASFailed)},
-             @{@"id":@(5),@"name":@"包子團購3",@"status":@(ASSuccess)}];
+    return @[@{@"id":@"3",@"name":@"包子團購1",@"status":@(ASRecruting)},
+             @{@"id":@"4",@"name":@"包子團購2",@"status":@(ASFailed)},
+             @{@"id":@"5",@"name":@"包子團購3",@"status":@(ASSuccess)}];
 }
 
 
@@ -56,11 +56,44 @@ const float FAKE_DELAY = 1000;
     return DBsuccess;
 }
 
+-(NSArray*)GetBuyList:(NSString*)activityID
+{
+    NSArray *buylist = @[
+     @{
+         @"activityID":@"0",
+         @"buyList":@[@(1),@(2)],
+         @"phone":@"0933228300",
+         @"facebookID":@"0",
+         @"name":@"小熊",
+      },
+     
+     @{
+         @"activityID":@"0",
+         @"buyList":@[@(1),@(0)],
+         @"phone":@"0933228300",
+         @"facebookID":@"1",
+         @"name":@"包子",
+         },
+     
+     @{
+         @"activityID":@"0",
+         @"buyList":@[@(1),@(1)],
+         @"phone":@"0933228300",
+         @"facebookID":@"2",
+         @"name":@"昱儒",
+         },
+       ];
+    
+    return buylist;
+}
 
--(NSDictionary*)GetActivityDetail:(int)activityID
+
+
+
+-(NSDictionary*)GetActivityDetail:(NSString*)activityID
 {
     return @{
-             @"id":@(activityID),
+             @"id":activityID,
              @"name":@"包子團購",
              @"description":@"露天拍賣上的Mac比較便宜，但是要運費，一次訂超過十台可以免運，有興趣的++噢！",
              @"url":@"http://tw.yahoo.com",
