@@ -7,6 +7,7 @@
 //
 
 #import "TabbarViewController.h"
+#import "TotalBuyTableViewController.h"
 
 @interface TabbarViewController ()
 
@@ -25,9 +26,17 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"Activity:%@",self.activityDetail);
-    NSLog(@"Buy:%@",self.buyList);
     
+        //NSLog(@"hello3 %@",self.buyList);
+
+            TotalBuyTableViewController* totalBuy = [TotalBuyTableViewController GetInstance];
+    
+            totalBuy.activityDetail = self.activityDetail;
+            totalBuy.buyList = self.buyList;
+            
+
+    
+    //self.tabBarController.t
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.

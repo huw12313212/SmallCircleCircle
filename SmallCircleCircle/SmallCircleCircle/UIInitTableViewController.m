@@ -240,6 +240,8 @@ enum AcitivityType
         viewController.buyList = buyList;
         
         
+        
+        
         //NSLog(@"ActivityID %@",ActivityID);
         //NSDictionary* activityData
         

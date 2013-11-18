@@ -16,6 +16,7 @@
 		8A62C25D18379EB40039E173 /* UIItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A62C25C18379EB40039E173 /* UIItemViewController.m */; };
 		8A62C2601837A9380039E173 /* UINewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A62C25F1837A9380039E173 /* UINewItemViewController.m */; };
 		8A7F1360183A02A400F93D52 /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F135F183A02A400F93D52 /* TabbarViewController.m */; };
+		8A7F1363183A112100F93D52 /* TotalBuyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F1362183A112100F93D52 /* TotalBuyTableViewController.m */; };
 		8AAC3E4A183749710045391A /* UICreateActivityInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC3E49183749710045391A /* UICreateActivityInfoViewController.m */; };
 		8AAC3E4D183775390045391A /* UIFeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC3E4C183775390045391A /* UIFeeViewController.m */; };
 		8AAECBE91837D5C90070806A /* UITradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAECBE81837D5C90070806A /* UITradeDetailViewController.m */; };
@@ -67,6 +68,8 @@
 		8A62C25F1837A9380039E173 /* UINewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINewItemViewController.m; sourceTree = "<group>"; };
 		8A7F135E183A02A400F93D52 /* TabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarViewController.h; sourceTree = "<group>"; };
 		8A7F135F183A02A400F93D52 /* TabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarViewController.m; sourceTree = "<group>"; };
+		8A7F1361183A112100F93D52 /* TotalBuyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalBuyTableViewController.h; sourceTree = "<group>"; };
+		8A7F1362183A112100F93D52 /* TotalBuyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalBuyTableViewController.m; sourceTree = "<group>"; };
 		8AAC3E48183749710045391A /* UICreateActivityInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICreateActivityInfoViewController.h; sourceTree = "<group>"; };
 		8AAC3E49183749710045391A /* UICreateActivityInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICreateActivityInfoViewController.m; sourceTree = "<group>"; };
 		8AAC3E4B183775390045391A /* UIFeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFeeViewController.h; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 				8A18A81E18392FB100B977B2 /* UIContactViewController.m */,
 				8A7F135E183A02A400F93D52 /* TabbarViewController.h */,
 				8A7F135F183A02A400F93D52 /* TabbarViewController.m */,
+				8A7F1361183A112100F93D52 /* TotalBuyTableViewController.h */,
+				8A7F1362183A112100F93D52 /* TotalBuyTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 				8AAECBEF1837E8DF0070806A /* UICompleteViewController.m in Sources */,
 				8A62C25D18379EB40039E173 /* UIItemViewController.m in Sources */,
 				8AAECBEC1837DA9E0070806A /* UINewTradeDetailViewController.m in Sources */,
+				8A7F1363183A112100F93D52 /* TotalBuyTableViewController.m in Sources */,
 				8A18A81C1839233500B977B2 /* UIEngagedViewController.m in Sources */,
 				8A57D1CB1838911200A1CF55 /* MyUIStepper.m in Sources */,
 				8ACDA1A018368ED200120873 /* UIInitTableViewController.m in Sources */,

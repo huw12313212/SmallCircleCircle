@@ -61,7 +61,7 @@ const float FAKE_DELAY = 1000;
     NSArray *buylist = @[
      @{
          @"activityID":@"0",
-         @"buyList":@[@(1),@(2)],
+         @"buyList":@[@(1),@(5)],
          @"phone":@"0933228300",
          @"facebookID":@"0",
          @"name":@"小熊",
