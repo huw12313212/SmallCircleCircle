@@ -229,6 +229,7 @@ enum AcitivityType
     if([segue.identifier isEqual:@"hostDetail"])
     {
         TabbarViewController *viewController = segue.destinationViewController;
+        
         NSIndexPath * path = [self.tableView indexPathForCell:sender];
         NSString* ActivityID = self.CreatedAcitivities[path.row][@"id"];
         
@@ -238,16 +239,7 @@ enum AcitivityType
         
         viewController.activityDetail = activityDetail;
         viewController.buyList = buyList;
-        
-        
-        
-        
-        //NSLog(@"ActivityID %@",ActivityID);
-        //NSDictionary* activityData
-        
-        
     }
-    
 }
 
 

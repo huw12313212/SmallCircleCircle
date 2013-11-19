@@ -65,6 +65,10 @@ const float FAKE_DELAY = 1000;
          @"phone":@"0933228300",
          @"facebookID":@"0",
          @"name":@"小熊",
+         @"date":@"2013/10/22 10:00 am",
+         @"location":@"臺大德田館",
+         @"buyid":@"123",
+         @"finished":@(NO),
       },
      
      @{
@@ -73,6 +77,10 @@ const float FAKE_DELAY = 1000;
          @"phone":@"0933228300",
          @"facebookID":@"1",
          @"name":@"包子",
+         @"date":@"2013/10/22 10:00 am",
+         @"location":@"臺大德田館",
+         @"buyid":@"456",
+         @"finished":@(YES),
          },
      
      @{
@@ -81,6 +89,10 @@ const float FAKE_DELAY = 1000;
          @"phone":@"0933228300",
          @"facebookID":@"2",
          @"name":@"昱儒",
+         @"date":@"2013/10/24 12:00 am",
+         @"location":@"公館捷運站",
+         @"buyid":@"789",
+         @"finished":@(NO),
          },
        ];
     

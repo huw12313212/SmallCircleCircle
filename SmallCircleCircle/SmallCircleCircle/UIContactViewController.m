@@ -45,6 +45,9 @@
     [dictionary setObject:self.BuyAmountArray forKey:@"buyList"];
     [dictionary setObject:self.PhoneNumber.text forKey:@"phone"];
     
+    [dictionary setObject:self.Date forKey:@"date"];
+    [dictionary setObject:self.Location forKey:@"location"];
+    
     [self.DataBase JoinActivity:@"0" :self.ActivityDetail[@"id"]:dictionary];
     
 }

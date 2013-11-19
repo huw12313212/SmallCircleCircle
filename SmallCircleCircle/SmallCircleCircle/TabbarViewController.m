@@ -8,6 +8,7 @@
 
 #import "TabbarViewController.h"
 #import "TotalBuyTableViewController.h"
+#import "JoinedBuyDetailViewController.h"
 
 @interface TabbarViewController ()
 
@@ -33,7 +34,11 @@
     
             totalBuy.activityDetail = self.activityDetail;
             totalBuy.buyList = self.buyList;
-            
+    
+            JoinedBuyDetailViewController* joined = [JoinedBuyDetailViewController GetInstance];
+    
+    joined.activityDetail = self.activityDetail;
+    joined.buyList = self.buyList;
 
     
     //self.tabBarController.t

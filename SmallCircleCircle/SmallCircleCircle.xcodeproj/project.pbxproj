@@ -22,6 +22,7 @@
 		8AAECBE91837D5C90070806A /* UITradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAECBE81837D5C90070806A /* UITradeDetailViewController.m */; };
 		8AAECBEC1837DA9E0070806A /* UINewTradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAECBEB1837DA9E0070806A /* UINewTradeDetailViewController.m */; };
 		8AAECBEF1837E8DF0070806A /* UICompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAECBEE1837E8DF0070806A /* UICompleteViewController.m */; };
+		8AC1CF67183A752A00F26645 /* JoinedBuyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1CF66183A752A00F26645 /* JoinedBuyDetailViewController.m */; };
 		8ACDA1A018368ED200120873 /* UIInitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDA19F18368ED200120873 /* UIInitTableViewController.m */; };
 		8ACDA1A61836945000120873 /* FakeDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDA1A51836945000120873 /* FakeDB.m */; };
 		8AEA1E351835E6F2003EA73D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AEA1E341835E6F2003EA73D /* Foundation.framework */; };
@@ -80,6 +81,8 @@
 		8AAECBEB1837DA9E0070806A /* UINewTradeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINewTradeDetailViewController.m; sourceTree = "<group>"; };
 		8AAECBED1837E8DF0070806A /* UICompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICompleteViewController.h; sourceTree = "<group>"; };
 		8AAECBEE1837E8DF0070806A /* UICompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICompleteViewController.m; sourceTree = "<group>"; };
+		8AC1CF65183A752A00F26645 /* JoinedBuyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinedBuyDetailViewController.h; sourceTree = "<group>"; };
+		8AC1CF66183A752A00F26645 /* JoinedBuyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinedBuyDetailViewController.m; sourceTree = "<group>"; };
 		8ACDA19E18368ED200120873 /* UIInitTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIInitTableViewController.h; sourceTree = "<group>"; };
 		8ACDA19F18368ED200120873 /* UIInitTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIInitTableViewController.m; sourceTree = "<group>"; };
 		8ACDA1A3183691F100120873 /* DBQueryInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBQueryInterface.h; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				8A7F135F183A02A400F93D52 /* TabbarViewController.m */,
 				8A7F1361183A112100F93D52 /* TotalBuyTableViewController.h */,
 				8A7F1362183A112100F93D52 /* TotalBuyTableViewController.m */,
+				8AC1CF65183A752A00F26645 /* JoinedBuyDetailViewController.h */,
+				8AC1CF66183A752A00F26645 /* JoinedBuyDetailViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				8A7F1360183A02A400F93D52 /* TabbarViewController.m in Sources */,
 				8A57D1D11838A23000A1CF55 /* UICheckViewController.m in Sources */,
 				8A57D1C518388A1100A1CF55 /* UIItemAmountViewController.m in Sources */,
+				8AC1CF67183A752A00F26645 /* JoinedBuyDetailViewController.m in Sources */,
 				8A62C2601837A9380039E173 /* UINewItemViewController.m in Sources */,
 				8AEA1E411835E6F2003EA73D /* main.m in Sources */,
 				8AEA1E451835E6F2003EA73D /* huwAppDelegate.m in Sources */,
