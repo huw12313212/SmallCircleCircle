@@ -7,6 +7,7 @@
 //
 
 #import "JoinedBuyDetailViewController.h"
+#import "RecipeViewController.h"
 
 @interface JoinedBuyDetailViewController ()
 
@@ -79,7 +80,7 @@ static JoinedBuyDetailViewController* _instance;
    // CGRect rec = self.tableView.frame;
     
     
-   [self.tableView setContentInset:UIEdgeInsetsMake(66,0,0,0)];
+
     //NSLog(@"buyList : %@",self.buyList);
       //  NSLog(@"activity : %@",self.activityDetail);
     
@@ -190,16 +191,20 @@ static JoinedBuyDetailViewController* _instance;
 }
 */
 
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqual:@"Detail"])
+    {
+        RecipeViewController* recipe = segue.destinationViewController;
+        recipe.activityDetail = self.activityDetail;
+        recipe.buyList = self.buyList;
+        
+        NSIndexPath* path =  [self.tableView indexPathForCell:sender];
+        
+        recipe.buyEntry = self.locationArray[path.section][path.row];
+        
+    }
+    
+    
 }
-
- */
-
 @end

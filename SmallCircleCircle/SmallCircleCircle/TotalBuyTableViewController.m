@@ -76,7 +76,7 @@ int totalMoney = 0;
         }
     }
     
-    NSLog(@"total count : %@", self.TotalSumArray);
+    //NSLog(@"total count : %@", self.TotalSumArray);
     
     
     for(int i =0;i<itemList.count;i++)
@@ -89,7 +89,7 @@ int totalMoney = 0;
     
     [super viewDidLoad];
 
-    
+       [self.tableView setContentInset:UIEdgeInsetsMake(66,0,0,0)];
     //NSLog(@"hello");
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -97,6 +97,7 @@ int totalMoney = 0;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 - (void)didReceiveMemoryWarning
 {

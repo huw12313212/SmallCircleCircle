@@ -13,6 +13,7 @@
 		8A57D1C518388A1100A1CF55 /* UIItemAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A57D1C418388A1100A1CF55 /* UIItemAmountViewController.m */; };
 		8A57D1CB1838911200A1CF55 /* MyUIStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A57D1CA1838911200A1CF55 /* MyUIStepper.m */; };
 		8A57D1D11838A23000A1CF55 /* UICheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A57D1D01838A23000A1CF55 /* UICheckViewController.m */; };
+		8A58B45A183B7E44003F9A93 /* RecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A58B459183B7E44003F9A93 /* RecipeViewController.m */; };
 		8A62C25D18379EB40039E173 /* UIItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A62C25C18379EB40039E173 /* UIItemViewController.m */; };
 		8A62C2601837A9380039E173 /* UINewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A62C25F1837A9380039E173 /* UINewItemViewController.m */; };
 		8A7F1360183A02A400F93D52 /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F135F183A02A400F93D52 /* TabbarViewController.m */; };
@@ -63,6 +64,8 @@
 		8A57D1CA1838911200A1CF55 /* MyUIStepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUIStepper.m; sourceTree = "<group>"; };
 		8A57D1CF1838A23000A1CF55 /* UICheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICheckViewController.h; sourceTree = "<group>"; };
 		8A57D1D01838A23000A1CF55 /* UICheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICheckViewController.m; sourceTree = "<group>"; };
+		8A58B458183B7E44003F9A93 /* RecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeViewController.h; sourceTree = "<group>"; };
+		8A58B459183B7E44003F9A93 /* RecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeViewController.m; sourceTree = "<group>"; };
 		8A62C25B18379EB40039E173 /* UIItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemViewController.h; sourceTree = "<group>"; };
 		8A62C25C18379EB40039E173 /* UIItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemViewController.m; sourceTree = "<group>"; };
 		8A62C25E1837A9380039E173 /* UINewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINewItemViewController.h; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 				8A7F1362183A112100F93D52 /* TotalBuyTableViewController.m */,
 				8AC1CF65183A752A00F26645 /* JoinedBuyDetailViewController.h */,
 				8AC1CF66183A752A00F26645 /* JoinedBuyDetailViewController.m */,
+				8A58B458183B7E44003F9A93 /* RecipeViewController.h */,
+				8A58B459183B7E44003F9A93 /* RecipeViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				8A7F1360183A02A400F93D52 /* TabbarViewController.m in Sources */,
 				8A57D1D11838A23000A1CF55 /* UICheckViewController.m in Sources */,
 				8A57D1C518388A1100A1CF55 /* UIItemAmountViewController.m in Sources */,
+				8A58B45A183B7E44003F9A93 /* RecipeViewController.m in Sources */,
 				8AC1CF67183A752A00F26645 /* JoinedBuyDetailViewController.m in Sources */,
 				8A62C2601837A9380039E173 /* UINewItemViewController.m in Sources */,
 				8AEA1E411835E6F2003EA73D /* main.m in Sources */,
