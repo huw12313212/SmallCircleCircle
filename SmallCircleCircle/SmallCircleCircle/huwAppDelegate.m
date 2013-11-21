@@ -7,7 +7,10 @@
 //
 
 #import "huwAppDelegate.h"
+<<<<<<< HEAD
 #import <Parse/Parse.h>
+=======
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
 
 @implementation huwAppDelegate
 
@@ -32,9 +35,13 @@ static NSString* _openID = @"-1";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+<<<<<<< HEAD
     [Parse setApplicationId:@"jigcccFU23yCJWb51bJ7Htt70ipoprGeouMUJNBb"
                   clientKey:@"hmbyJNUBVfjqAWwfwDDTCxfRAOACPqjFrOGaInZB"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+=======
+    
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
     return YES;
 }
 

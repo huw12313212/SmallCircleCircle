@@ -10,9 +10,15 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+<<<<<<< HEAD
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "subtype" : "retina4",
+=======
+      "subtype" : "retina4",
+      "extent" : "full-screen",
+      "minimum-system-version" : "7.0",
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
       "scale" : "2x"
     }
   ],

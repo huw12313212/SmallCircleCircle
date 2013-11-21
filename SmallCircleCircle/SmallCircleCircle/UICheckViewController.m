@@ -121,7 +121,11 @@
         int price = [allObject[indexPath.row][@"price"]integerValue];
         
         nameLabel.text = allObject[indexPath.row][@"name"];
+<<<<<<< HEAD
         priceLabel.text =  allObject[indexPath.row][@"price"];
+=======
+        priceLabel.text =  [allObject[indexPath.row][@"price"]stringValue];
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
         
         int countToBuy = [self.BuyAmountArray[indexPath.row] integerValue];
         

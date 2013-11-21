@@ -32,12 +32,24 @@
     [super viewDidLoad];
     
     NSArray* allItems = self.AcitivityDetail[@"items"];
+<<<<<<< HEAD
     self.BuyAmountArray = [[NSMutableArray alloc]init];
         for(int i=0;i<allItems.count;i++)
     {
         [self.BuyAmountArray addObject:@(0)];
     }
 
+=======
+    
+    self.BuyAmountArray = [[NSMutableArray alloc]init];
+    
+    
+    for(int i=0;i<allItems.count;i++)
+    {
+        [self.BuyAmountArray addObject:@(0)];
+    }
+    
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -64,22 +76,34 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
+<<<<<<< HEAD
 
     return [self.AcitivityDetail[@"items"] count];
+=======
+    return [self.AcitivityDetail[@"items"]count];
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
     NSArray* allItems = self.AcitivityDetail[@"items"];
     
     UILabel* nameLabel = [cell viewWithTag:1];
     UILabel* price = [cell viewWithTag:2];
     UILabel* count = [cell viewWithTag:3];
     MyUIStepper* stepper = [cell viewWithTag:4];
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
     
     stepper.target =count;
     stepper.nowIndex = indexPath.row;
@@ -87,9 +111,15 @@
     stepper.value = [self.BuyAmountArray[indexPath.row]integerValue];
     
     nameLabel.text = allItems[indexPath.row][@"name"];
+<<<<<<< HEAD
     price.text =  allItems[indexPath.row][@"price"];
     
 
+=======
+    price.text =  [allItems[indexPath.row][@"price"]stringValue];
+    
+    
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
     
     [stepper addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
 

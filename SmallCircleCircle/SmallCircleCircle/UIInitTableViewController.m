@@ -34,9 +34,16 @@ enum AcitivityType
 {
     self = [super initWithCoder:c];
     if (self) {
+<<<<<<< HEAD
         self.Database = [FakeDB GetDBInstance];
         self.CreatedAcitivities = [self.Database GetCreatedActivity : @"0"];
         self.JoinedAcitivities = [self.Database GetJoinedActivity : @"0"];
+=======
+        
+        self.Database = [FakeDB GetDBInstance];
+        self.CreatedAcitivities = [self.Database GetCreatedActivity : 0];
+        self.JoinedAcitivities = [self.Database GetJoinedActivity : 0];
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add:)];
 
@@ -231,10 +238,17 @@ enum AcitivityType
         
         NSIndexPath * path = [self.tableView indexPathForCell:sender];
         NSString* ActivityID = self.CreatedAcitivities[path.row][@"id"];
+<<<<<<< HEAD
         NSString* BuyID = self.JoinedAcitivities[path.row][@"id"];
         
         NSDictionary* activityDetail = [self.Database GetActivityDetail:ActivityID];
         NSArray* buyList = [self.Database GetBuyList:BuyID];
+=======
+        
+        
+        NSDictionary* activityDetail = [self.Database GetActivityDetail:ActivityID];
+        NSArray* buyList = [self.Database GetBuyList:ActivityID];
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
         
         viewController.activityDetail = activityDetail;
         viewController.buyList = buyList;

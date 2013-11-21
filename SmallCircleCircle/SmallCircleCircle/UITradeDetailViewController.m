@@ -119,7 +119,10 @@
     else if([segue.identifier  isEqual: @"Next"])
     {
         [self.dictionary setObject:self.EntryList forKey:@"tradeDates"];
+<<<<<<< HEAD
         [self.dictionary setObject:@(0) forKey:@"status"];
+=======
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
         [self.Database CreateActivity:@"0" :self.dictionary];
         
          // NSLog(@"%@",self.dictionary);

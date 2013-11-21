@@ -14,4 +14,9 @@
 +(FakeDB*)GetDBInstance;
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> be54ca681ed663993d1d1a80c1501f8d84adc284
 @end

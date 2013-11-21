@@ -10,10 +10,13 @@
 #import <Parse/Parse.h>
 
 
+
 @implementation FakeDB
 
 static FakeDB *instance = nil;
+
 static NSCache *cache;
+
 const float FAKE_DELAY = 1000;
 
 +(FakeDB*)GetDBInstance
@@ -24,9 +27,11 @@ const float FAKE_DELAY = 1000;
                       clientKey:@"hmbyJNUBVfjqAWwfwDDTCxfRAOACPqjFrOGaInZB"];
         instance = [[FakeDB alloc]init];
         cache = [[NSCache alloc] init];
+
     }
     return instance;
 }
+
 
 + (NSCache *)sharedCache {
     static NSCache *cache;
@@ -38,8 +43,10 @@ const float FAKE_DELAY = 1000;
 }
 
 
+
 -(NSArray*) GetCreatedActivity :(NSString*)facebookID
 {
+
     //為了讓parse可以跑，因為一開始要load頁面，但是appdelegate還沒準備好
    /* [Parse setApplicationId:@"jigcccFU23yCJWb51bJ7Htt70ipoprGeouMUJNBb"
                   clientKey:@"hmbyJNUBVfjqAWwfwDDTCxfRAOACPqjFrOGaInZB"]; */
@@ -58,10 +65,12 @@ const float FAKE_DELAY = 1000;
     }
     
     return result;
+
 }
 
 -(NSArray*) GetJoinedActivity :(NSString*)facebookID
 {
+
     NSMutableArray * result = [[NSMutableArray alloc] init];
     PFQuery *query = [PFQuery queryWithClassName:@"OrderList"];
     [query whereKey:@"userID" equalTo:facebookID];
@@ -81,18 +90,20 @@ const float FAKE_DELAY = 1000;
     }
     NSLog(@"2");
     return result;
+
 }
 
 
 -(int) CreateActivity:(NSString*)facebookID :(NSDictionary*)ActivityDetail
 {
+
     
     
     PFObject *pfObject = [PFObject objectWithClassName:@"CircleList"];
     pfObject[@"userID"] = facebookID;
     pfObject[@"Detail"] = ActivityDetail;
     [pfObject save];
-    NSLog(@"CreateActivity : %@",ActivityDetail);
+
     
     return DBsuccess;
 }
@@ -100,12 +111,13 @@ const float FAKE_DELAY = 1000;
 
 -(int)JoinActivity:(NSString*)facebookID :(NSString*)ActivityID :(NSDictionary*)Detail;
 {
+
     PFObject *pfObject = [PFObject objectWithClassName:@"OrderList"];
     pfObject[@"userID"] = facebookID;
     pfObject[@"ActivityID"] = ActivityID;
     pfObject[@"Detail"] = Detail;
     [pfObject save];
-    NSLog(@"JoinActivity : %@",Detail);
+
     
     return DBsuccess;
 }
@@ -158,7 +170,6 @@ const float FAKE_DELAY = 1000;
 
 -(NSDictionary*)GetActivityDetail:(NSString*)activityID
 {
-
     [Parse setApplicationId:@"jigcccFU23yCJWb51bJ7Htt70ipoprGeouMUJNBb"
                   clientKey:@"hmbyJNUBVfjqAWwfwDDTCxfRAOACPqjFrOGaInZB"];
     PFQuery * pfobject = [PFQuery queryWithClassName:@"CircleList"];
@@ -166,6 +177,7 @@ const float FAKE_DELAY = 1000;
     NSMutableDictionary * result = temp[@"Detail"];
     [result setObject:activityID forKey:@"id"];
     return result;
+
 }
 
 
