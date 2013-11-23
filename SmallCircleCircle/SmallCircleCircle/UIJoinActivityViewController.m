@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *Fee;
 @property (weak, nonatomic) IBOutlet UILabel *Constraint;
 @property (weak, nonatomic) IBOutlet UILabel *PS;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *JoinButton;
 
 @property (strong,nonatomic)id <DBQueryInterface> Database;
 @property (strong,nonatomic) NSDictionary* data;
@@ -40,6 +41,17 @@
 
 - (void)viewDidLoad
 {
+    if(self.Join)
+    {
+        [self.JoinButton setEnabled:YES];
+        self.JoinButton.title = @"Join";
+    }
+    else
+    {
+        [self.JoinButton setEnabled:NO];
+        self.JoinButton.title = @"";
+    }
+    
     [self.DescriptionLabel.layer  setBorderColor:[[[UIColor grayColor] colorWithAlphaComponent:0.25] CGColor]];
     [self.DescriptionLabel.layer setBorderWidth:1.0];
     self.DescriptionLabel.layer.cornerRadius = 5;

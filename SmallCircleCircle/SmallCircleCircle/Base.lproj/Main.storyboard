@@ -119,16 +119,17 @@
                     <connections>
                         <segue destination="UGF-nz-OIc" kind="push" identifier="CreateActivity" id="D69-CC-s6n"/>
                         <segue destination="ieK-gD-NnX" kind="push" identifier="OpenURL" id="Yqp-5T-hvA"/>
+                        <segue destination="BQ9-P1-Eii" kind="push" identifier="Detail" id="ZKv-NC-sFh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHB-9b-bvC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-572" y="62"/>
+            <point key="canvasLocation" x="-1468" y="-320"/>
         </scene>
         <!--Join Activity View Controller - 參加團購-->
         <scene sceneID="aqU-KX-C8X">
             <objects>
-                <viewController id="ieK-gD-NnX" customClass="UIJoinActivityViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivityDetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ieK-gD-NnX" customClass="UIJoinActivityViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="inq-dw-ot2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -258,6 +259,7 @@
                         <outlet property="DescriptionLabel" destination="Dib-XE-zGm" id="UR0-pF-LRd"/>
                         <outlet property="ExpireDate" destination="J8E-pR-MtW" id="0I7-NT-JZ1"/>
                         <outlet property="Fee" destination="hNL-MJ-lp2" id="eQ2-t7-sIH"/>
+                        <outlet property="JoinButton" destination="F6k-fk-J0k" id="JXI-Kh-TTB"/>
                         <outlet property="Location" destination="Xl8-IM-Ucm" id="kLm-0c-82R"/>
                         <outlet property="PS" destination="Ouf-5E-mOg" id="h7e-K5-Uvm"/>
                         <outlet property="PhoneNumber" destination="2Sh-JQ-HQc" id="vCc-HB-uQj"/>
@@ -805,7 +807,7 @@
         <!--Item View Controller - 商品-->
         <scene sceneID="sKO-G5-QnV">
             <objects>
-                <tableViewController id="0gG-gt-urB" customClass="UIItemViewController" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="Items" storyboardIdentifier="Items" id="0gG-gt-urB" customClass="UIItemViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="i3h-7h-MU1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -876,7 +878,7 @@
         <!--Trade Detail View Controller - 領貨時段-->
         <scene sceneID="rsT-fl-Djm">
             <objects>
-                <tableViewController id="GP3-KW-RIE" customClass="UITradeDetailViewController" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="Dates" storyboardIdentifier="Dates" id="GP3-KW-RIE" customClass="UITradeDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Grt-vM-V9v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1235,7 +1237,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hcc-GX-3SG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11" y="1455"/>
+            <point key="canvasLocation" x="-919" y="1571"/>
         </scene>
         <!--Joined Buy Detail View Controller - 領貨預約-->
         <scene sceneID="afd-wf-omR">
@@ -1282,7 +1284,22 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="McH-Ql-eeu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="1435"/>
+            <point key="canvasLocation" x="480" y="1587"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Yjl-1s-fbd">
+            <objects>
+                <viewController id="e61-M5-6o0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r73-fM-KUV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DbF-9i-Tor"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZHG-zZ-O7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-41" y="755"/>
         </scene>
         <!--Total Buy Table View Controller - 訂貨資訊-->
         <scene sceneID="oll-oO-rHR">
@@ -1373,7 +1390,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZe-Nb-IXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="739"/>
+            <point key="canvasLocation" x="468" y="863"/>
         </scene>
         <!--Recipe View Controller - 領貨明細-->
         <scene sceneID="QCO-Jf-EX9">
@@ -1479,7 +1496,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5l-dt-MhX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="1435"/>
+            <point key="canvasLocation" x="1011" y="1587"/>
+        </scene>
+        <!--Detail Page View Controller-->
+        <scene sceneID="OkB-zd-CJZ">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="BQ9-P1-Eii" customClass="DetailPageViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xsM-Tz-42o"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2BU-Nh-qjq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-595" y="309"/>
         </scene>
         <!--Tabbar View Controller - 主揪資訊-->
         <scene sceneID="CKv-cp-ZQH">
@@ -1499,7 +1526,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5c-xd-ZJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3" y="739"/>
+            <point key="canvasLocation" x="-201" y="1595"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rfg-ea-quG">
@@ -1517,7 +1544,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpE-WM-wZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1094" y="78"/>
+            <point key="canvasLocation" x="-2034" y="-432"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

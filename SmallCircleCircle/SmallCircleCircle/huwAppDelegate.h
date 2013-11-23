@@ -12,6 +12,7 @@
 
 + (bool) isURL;
 + (NSString*) getOpenId;
++ (void) setOpenId:(NSString*)activityID;
 + (void) clearURL;
 
 

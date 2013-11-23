@@ -17,6 +17,12 @@ static NSString* _openID = @"-1";
 {
     return _isURL;
 }
+
++ (void) setOpenId:(NSString*)activityID
+{
+    _isURL = activityID;
+}
+
 + (NSString*) getOpenId
 {
     return _openID;

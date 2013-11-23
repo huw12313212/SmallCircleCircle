@@ -67,6 +67,8 @@ UIGestureRecognizer *tapper;
     {
         UIItemViewController *itemView= segue.destinationViewController;
         
+        itemView.Creating = true;
+        
         if(self.dictionary == nil)
         {
             self.dictionary = [[NSMutableDictionary alloc]init];

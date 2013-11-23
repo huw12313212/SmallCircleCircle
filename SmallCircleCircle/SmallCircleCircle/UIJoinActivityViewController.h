@@ -10,6 +10,8 @@
 
 @interface UIJoinActivityViewController : UIViewController
 
-@property (nonatomic) int ActivityID;
+//@property (nonatomic) int ActivityID;
+
+@property bool Join;
 
 @end

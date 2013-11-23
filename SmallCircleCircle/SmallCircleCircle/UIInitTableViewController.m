@@ -13,6 +13,7 @@
 #import "TabbarViewController.h"
 #import "RecipeViewController.h"
 #import "UICompleteViewController.h"
+#import "DetailPageViewController.h"
 
 @interface UIInitTableViewController ()
 
@@ -105,7 +106,7 @@ enum AcitivityType
 
 -(void) detail:(id) sender {
     
-
+ [self performSegueWithIdentifier:@"Detail" sender:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -290,7 +291,30 @@ enum AcitivityType
         recipe.buyEntry = buyEntry;
         recipe.mode = forJoin;
     }
+    else if([segue.identifier isEqual:@"OpenURL"])
+    {
+       UIJoinActivityViewController* join =  segue.destinationViewController;
+        join.Join = true;
+        NSLog(@"OpenURL");
+    }
+    else if([segue.identifier isEqual:@"Detail"])
+    {
+        DetailPageViewController* detail =  segue.destinationViewController;
+        
+        if(self.path.section == 0)
+        {
+             detail.ActivityDetail = self.CreatedAcitivities[self.path.row];
+        }
+        else if(self.path.section == 1)
+        {
+               detail.ActivityDetail = self.JoinedAcitivities[self.path.row];
+        }
+        
+    }
 }
+
+
+
 
 
 

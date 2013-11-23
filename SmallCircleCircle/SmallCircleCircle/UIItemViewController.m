@@ -12,7 +12,7 @@
 
 @interface UIItemViewController ()
 
-@property (strong,nonatomic)NSMutableArray* ItemList;
+
 
 @end
 
@@ -29,6 +29,15 @@
 
 - (void)viewDidLoad
 {
+    if(!self.Creating)
+    {
+        [self.tableView setContentInset:UIEdgeInsetsMake(66,0,0,0)];
+    }
+    else
+    {
+        [self.tableView setContentInset:UIEdgeInsetsMake(0,0,0,0)];
+    }
+    
     [super viewDidLoad];
     
     if(self.ItemList == nil)
@@ -61,7 +70,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int data =[self.ItemList count];
+ 
+    if(self.Creating)
+    {
     data+=1;
+    }
     
     //NSLog(@"length %d",[self.ItemList count]);
 #warning Incomplete method implementation.
@@ -71,6 +84,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
     UITableViewCell *cell;
     NSString *CellIdentifier;
     if(indexPath.row == [self.ItemList count])
@@ -88,7 +103,7 @@
         UILabel* priceLabel = (UILabel*)[cell viewWithTag:2];
         
         nameLabel.text = self.ItemList[indexPath.row][@"name"];
-        priceLabel.text = self.ItemList[indexPath.row][@"price"];
+        priceLabel.text = [self.ItemList[indexPath.row][@"price"] stringValue];
     }
     
     return cell;
@@ -159,6 +174,7 @@
         
         tradeDetail.dictionary = self.dictionary;
         
+        tradeDetail.Creating = true;
          // NSLog(@"%@",self.dictionary);
         
     }

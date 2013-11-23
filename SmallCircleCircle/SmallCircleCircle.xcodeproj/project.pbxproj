@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8A18A81C1839233500B977B2 /* UIEngagedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18A81B1839233500B977B2 /* UIEngagedViewController.m */; };
 		8A18A81F18392FB100B977B2 /* UIContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18A81E18392FB100B977B2 /* UIContactViewController.m */; };
+		8A557AAD1840F44F00129B50 /* DetailPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A557AAC1840F44F00129B50 /* DetailPageViewController.m */; };
 		8A57D1C21838758800A1CF55 /* UIJoinActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A57D1C11838758800A1CF55 /* UIJoinActivityViewController.m */; };
 		8A57D1C518388A1100A1CF55 /* UIItemAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A57D1C418388A1100A1CF55 /* UIItemAmountViewController.m */; };
 		8A57D1CB1838911200A1CF55 /* MyUIStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A57D1CA1838911200A1CF55 /* MyUIStepper.m */; };
@@ -56,6 +57,8 @@
 		8A18A81B1839233500B977B2 /* UIEngagedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIEngagedViewController.m; sourceTree = "<group>"; };
 		8A18A81D18392FB100B977B2 /* UIContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIContactViewController.h; sourceTree = "<group>"; };
 		8A18A81E18392FB100B977B2 /* UIContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIContactViewController.m; sourceTree = "<group>"; };
+		8A557AAB1840F44F00129B50 /* DetailPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPageViewController.h; sourceTree = "<group>"; };
+		8A557AAC1840F44F00129B50 /* DetailPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPageViewController.m; sourceTree = "<group>"; };
 		8A57D1C01838758800A1CF55 /* UIJoinActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIJoinActivityViewController.h; sourceTree = "<group>"; };
 		8A57D1C11838758800A1CF55 /* UIJoinActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIJoinActivityViewController.m; sourceTree = "<group>"; };
 		8A57D1C318388A1100A1CF55 /* UIItemAmountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemAmountViewController.h; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				8AC1CF66183A752A00F26645 /* JoinedBuyDetailViewController.m */,
 				8A58B458183B7E44003F9A93 /* RecipeViewController.h */,
 				8A58B459183B7E44003F9A93 /* RecipeViewController.m */,
+				8A557AAB1840F44F00129B50 /* DetailPageViewController.h */,
+				8A557AAC1840F44F00129B50 /* DetailPageViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				8AAC3E4D183775390045391A /* UIFeeViewController.m in Sources */,
 				8A7F1360183A02A400F93D52 /* TabbarViewController.m in Sources */,
 				8A57D1D11838A23000A1CF55 /* UICheckViewController.m in Sources */,
+				8A557AAD1840F44F00129B50 /* DetailPageViewController.m in Sources */,
 				8A57D1C518388A1100A1CF55 /* UIItemAmountViewController.m in Sources */,
 				8A58B45A183B7E44003F9A93 /* RecipeViewController.m in Sources */,
 				8AC1CF67183A752A00F26645 /* JoinedBuyDetailViewController.m in Sources */,

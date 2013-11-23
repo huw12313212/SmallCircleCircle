@@ -12,7 +12,7 @@
 #import "UICompleteViewController.h"
 @interface UITradeDetailViewController ()
 
-@property (strong,nonatomic)NSMutableArray* EntryList;
+
 @property (strong,nonatomic)NSObject<DBQueryInterface> *Database;
 
 @end
@@ -40,6 +40,15 @@
     
     self.Database = [FakeDB GetDBInstance];
     
+    if(!self.Creating)
+    {
+        [self.tableView setContentInset:UIEdgeInsetsMake(66,0,0,0)];
+    }
+    else
+    {
+        [self.tableView setContentInset:UIEdgeInsetsMake(0,0,0,0)];
+    }
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -65,7 +74,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int data =[self.EntryList count];
+    
+    if(self.Creating)
+    {
     data+=1;
+    }
     return data;
 }
 

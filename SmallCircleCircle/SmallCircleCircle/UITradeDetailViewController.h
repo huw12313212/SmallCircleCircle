@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface UITradeDetailViewController : UITableViewController
-
+@property (strong,nonatomic)NSMutableArray* EntryList;
 @property (nonatomic,strong)NSMutableDictionary* dictionary;
+@property bool Creating;
 -(void)updateData;
 
 @end

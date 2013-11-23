@@ -11,7 +11,8 @@
 @interface UIItemViewController : UITableViewController
 
 -(void)updateData;
-
+@property (strong,nonatomic)NSMutableArray* ItemList;
 @property (nonatomic,strong)NSMutableDictionary* dictionary;
+@property bool Creating;
 
 @end
