@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecipeViewController : UITableViewController
+enum RecipeMode
+{
+    forHost,
+    forJoin,
+};
 
+@interface RecipeViewController : UITableViewController
+@property (nonatomic) enum RecipeMode mode;
 @property  (nonatomic,strong)NSDictionary* activityDetail;
 @property  (nonatomic,strong)NSArray* buyList;
 @property  (nonatomic,strong)NSDictionary* buyEntry;

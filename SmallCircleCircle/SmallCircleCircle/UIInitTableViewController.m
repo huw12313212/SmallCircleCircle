@@ -11,12 +11,15 @@
 #import "FakeDB.h"
 #import "UIJoinActivityViewController.h"
 #import "TabbarViewController.h"
+#import "RecipeViewController.h"
+#import "UICompleteViewController.h"
 
 @interface UIInitTableViewController ()
 
 @property (strong,nonatomic)id <DBQueryInterface> Database;
 @property (strong,nonatomic)NSArray* CreatedAcitivities;
 @property (strong,nonatomic)NSArray* JoinedAcitivities;
+@property (strong,nonatomic)NSIndexPath* path;
 
 @end
 
@@ -40,14 +43,29 @@ enum AcitivityType
         self.JoinedAcitivities = [self.Database GetJoinedActivity : 0];
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add:)];
-
+        
+        
+        
+        UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:@"Share" action:@selector(share:)];
+        UIMenuItem *menuItem2 = [[UIMenuItem alloc] initWithTitle:@"Detail" action:@selector(detail:)];
+        [[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:menuItem,menuItem2,nil] ];
+        [[UIMenuController sharedMenuController] update];
+        
+        
     }
     return self;
 }
 
+
+
 -(IBAction)Add:(id)sender
 {
     [self performSegueWithIdentifier:@"CreateActivity" sender:self];
+}
+
+- (BOOL)canBecomeFirstResponder {
+    // NOTE: This menu item will not show if this is not YES!
+    return YES;
 }
 
 - (void)viewDidLoad
@@ -56,11 +74,38 @@ enum AcitivityType
     
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+
+-(void) share: (id) sender {
+    
+    NSDictionary* targetActivity;
+    
+    if(self.path.section == 0)
+    {
+        targetActivity = self.CreatedAcitivities[self.path.row];
+    }
+    else if(self.path.section == 1)
+    {
+        targetActivity = self.JoinedAcitivities[self.path.row];
+    }
+    
+    NSString* activityID = targetActivity[@"id"];
+    UICompleteViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"Share"];
+    
+    controller.ActivityID = activityID;
+    
+    controller.share = true;
+    
+    [self.navigationController pushViewController:controller animated:YES];
+
+}
+
+
+-(void) detail:(id) sender {
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -160,11 +205,35 @@ enum AcitivityType
 
     statusLabel.text = statusStr;
 
-    
+    UILongPressGestureRecognizer * longPressGesture =   [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(cellLongPress:)];
+    [cell addGestureRecognizer:longPressGesture];
+
     
     return cell;
 }
 
+- (void)cellLongPress:(UIGestureRecognizer *)recognizer{
+    if (recognizer.state == UIGestureRecognizerStateBegan)
+    {
+        NSLog(@"long pressed");
+        
+        
+        UITableViewCell *cell = recognizer.view;
+        
+        self.path = [self.tableView indexPathForCell:cell];
+        
+        
+        CGPoint p =[recognizer locationInView:self.view];
+        
+        CGRect rect = CGRectMake(p.x, recognizer.view.frame.origin.y,-20, 0);
+        
+        [[UIMenuController sharedMenuController] setTargetRect:rect inView:self.view];
+        
+        [[UIMenuController sharedMenuController] setMenuVisible:true animated:YES];
+        
+
+    }
+}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
@@ -182,44 +251,6 @@ enum AcitivityType
     }
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 #pragma mark - Navigation
@@ -239,6 +270,25 @@ enum AcitivityType
         
         viewController.activityDetail = activityDetail;
         viewController.buyList = buyList;
+    }
+    else if([segue.identifier isEqual:@"joinDetail"])
+    {
+     
+            RecipeViewController* recipe = segue.destinationViewController;
+            
+            NSIndexPath* path =  [self.tableView indexPathForCell:sender];
+        
+           NSString* ActivityID = self.JoinedAcitivities[path.row][@"id"];
+        
+        
+        NSDictionary* detail = [self.Database GetActivityDetail:ActivityID];
+        NSArray* buyList = [self.Database GetBuyList:ActivityID];
+        NSDictionary* buyEntry = [self.Database GetMyBuyListInActivity:@"0" :@"0"];
+        
+        recipe.activityDetail = detail;
+        recipe.buyList = buyList;
+        recipe.buyEntry = buyEntry;
+        recipe.mode = forJoin;
     }
 }
 

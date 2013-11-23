@@ -8,9 +8,15 @@
 
 #import "RecipeViewController.h"
 
+
+
 @interface RecipeViewController ()
 
+
+
 @property (nonatomic,strong)NSMutableArray* itemData;
+
+//@property (nonatomic)
 
 @end
 
@@ -117,7 +123,17 @@ long fee;
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 3;
+    
+    if(self.mode == forHost)
+    {
+        return 3;
+    }
+    else
+    {
+        return 2;
+    }
+    
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -127,7 +143,14 @@ long fee;
     
     if(section==0)
     {
-        return 1;
+        if(self.mode == forHost)
+        {
+            return 1;
+        }
+        else if(self.mode == forJoin)
+        {
+            return 2;
+        }
     }
     else if(section == 1)
     {
@@ -153,11 +176,24 @@ long fee;
         UILabel* label = (UILabel*)[cell viewWithTag:1];
         UILabel* label2 = (UILabel*)[cell viewWithTag:2];
 
-        
         if(indexPath.row==0)
         {
-            label.text = self.buyEntry[@"name"];
-            label2.text = self.buyEntry[@"phone"];
+            if(self.mode == forHost)
+            {
+                label.text = self.buyEntry[@"name"];
+                label2.text = self.buyEntry[@"phone"];
+
+            }
+            else if(self.mode == forJoin)
+            {
+                label.text = self.activityDetail[@"name"];
+                label2.text = self.activityDetail[@"phone"];
+            }
+        }
+        else if(indexPath.row ==1)
+        {
+            label.text = self.buyEntry[@"location"];
+            label2.text = self.buyEntry[@"date"];
         }
    
     }
@@ -248,7 +284,18 @@ long fee;
 {
     if(section == 0)
     {
-        return @"購買人";
+        if(self.mode == forHost)
+        {
+            return @"購買人";
+        }
+        else if(self.mode == forJoin)
+        {
+            return @"主揪";
+        }
+        else
+        {
+            return @"undefined";
+        }
     }
     else if(section == 1)
     {

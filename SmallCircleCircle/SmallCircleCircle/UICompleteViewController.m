@@ -19,7 +19,7 @@
 @implementation UICompleteViewController
 - (IBAction)ClickOK:(id)sender {
     
-    
+
     
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -35,6 +35,16 @@
 
 - (void)viewDidLoad
 {
+    
+    if(self.share)
+    {
+        self.navigationItem.title = @"分享";
+    }
+    else
+    {
+        self.navigationItem.title = @"建立成功";
+    }
+    
      //[self.navigationController setNavigationBarHidden:YES animated:YES];
     
     self.Database = [FakeDB GetDBInstance];

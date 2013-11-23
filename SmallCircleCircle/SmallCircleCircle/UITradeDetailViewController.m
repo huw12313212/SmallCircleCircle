@@ -9,7 +9,7 @@
 #import "UITradeDetailViewController.h"
 #import "UINewTradeDetailViewController.h"
 #import "FakeDB.h"
-
+#import "UICompleteViewController.h"
 @interface UITradeDetailViewController ()
 
 @property (strong,nonatomic)NSMutableArray* EntryList;
@@ -120,6 +120,10 @@
     {
         [self.dictionary setObject:self.EntryList forKey:@"tradeDates"];
         [self.Database CreateActivity:@"0" :self.dictionary];
+        
+        UICompleteViewController* controller = segue.destinationViewController;
+        
+        controller.share = false;
         
          // NSLog(@"%@",self.dictionary);
         

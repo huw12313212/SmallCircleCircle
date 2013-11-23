@@ -202,6 +202,7 @@ static JoinedBuyDetailViewController* _instance;
         NSIndexPath* path =  [self.tableView indexPathForCell:sender];
         
         recipe.buyEntry = self.locationArray[path.section][path.row];
+        recipe.mode = forHost;
         
     }
     

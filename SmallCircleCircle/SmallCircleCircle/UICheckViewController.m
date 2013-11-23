@@ -11,10 +11,13 @@
 
 @interface UICheckViewController ()
 
+
 @end
 
 @implementation UICheckViewController
 
+long myItemNumber;
+long myTotal;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -27,12 +30,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    myItemNumber = 0;
+    myTotal = 0;
+    
+    NSArray* itemList = self.AcitivityDetail[@"items"];
+    for(int i = 0 ; i < [itemList count];i++)
+    {
+        NSDictionary* item = itemList[i];
+        
+        long number = [self.BuyAmountArray[i] integerValue];
+        
+        long total = number * [item[@"price"] integerValue];
+        
+        if(number > 0)
+        {
+            myItemNumber += number;
+            myTotal += total;
+            
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -140,8 +156,29 @@
 {
     double fee = [self.AcitivityDetail[@"fee"][@"feeAmount"] doubleValue];
     
+    NSString* feeStyle = self.AcitivityDetail[@"fee"][@"feeStyle"];
+    
+    long constraint = [self.AcitivityDetail[@"constraint"][@"amount"] longValue];
+    float ratio = 0;
+    
+    if(constraint == 0 )return fee;
+    
+    if([feeStyle isEqualToString:@"依金額比重平分"])
+    {
+        ratio = myTotal / (float)constraint;
+    }
+    else if([feeStyle isEqualToString:@"依數量比重平分"])
+    {
+        ratio = myItemNumber / (float)constraint;
+        //NSLog(@"count : %f,%ld,%ld",ratio,myItemNumber,constraint);
+    }
+    
+    
+    
     #warning 先亂算.
-    fee/= 10;
+    if(ratio > 1)return fee;
+    
+    fee *= ratio;
     
     
     return fee;

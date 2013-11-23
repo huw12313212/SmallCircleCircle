@@ -99,9 +99,6 @@ const float FAKE_DELAY = 1000;
     return buylist;
 }
 
-
-
-
 -(NSDictionary*)GetActivityDetail:(NSString*)activityID
 {
     return @{
@@ -114,8 +111,8 @@ const float FAKE_DELAY = 1000;
              @"expireDate":@"2013/12/12 13:00:00",
              @"constraint":
                  @{
-                     @"type":@"總數量大於",
-                     @"amount":@(10)
+                     @"type":@"總金額大於",
+                     @"amount":@(100000)
                  },
              @"fee":
                  @{
@@ -134,6 +131,22 @@ const float FAKE_DELAY = 1000;
                   ],
              @"phone":@"0912345678"
              };
+}
+
+-(NSDictionary*)GetMyBuyListInActivity:(NSString*)facebookID:(NSString*)activityID
+{
+    return
+    @{
+      @"activityID":@"0",
+      @"buyList":@[@(1),@(5)],
+      @"phone":@"0933228300",
+      @"facebookID":@"0",
+      @"name":@"小熊",
+      @"date":@"2013/10/22 10:00 am",
+      @"location":@"臺大德田館",
+      @"buyid":@"123",
+      @"finished":@(NO),
+      };
 }
 
 

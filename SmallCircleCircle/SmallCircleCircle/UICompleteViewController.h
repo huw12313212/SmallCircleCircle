@@ -10,4 +10,8 @@
 
 @interface UICompleteViewController : UIViewController
 
+@property (nonatomic,strong) NSString* ActivityID;
+
+@property bool share;
+
 @end
