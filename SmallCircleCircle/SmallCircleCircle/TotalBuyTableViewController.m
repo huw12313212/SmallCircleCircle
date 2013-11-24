@@ -138,7 +138,7 @@ int totalMoney = 0;
         UILabel *resultLabel = [cell viewWithTag:3];
         
         nameLabel.text = self.activityDetail[@"items"][indexPath.row][@"name"];
-        priceLabel.text = [self.activityDetail[@"items"][indexPath.row][@"price"]stringValue];
+        priceLabel.text = self.activityDetail[@"items"][indexPath.row][@"price"];
         
         int count = [self.TotalSumArray[indexPath.row] integerValue];
         int price = [self.activityDetail[@"items"][indexPath.row][@"price"] integerValue];
@@ -156,7 +156,7 @@ int totalMoney = 0;
         
         UILabel *fee = [cell viewWithTag:2];
         
-        fee.text = [self.activityDetail[@"fee"][@"feeAmount"]stringValue];
+        fee.text = self.activityDetail[@"fee"][@"feeAmount"];
         
     }
     else if(indexPath.row == [self.TotalSumArray count] + 1)

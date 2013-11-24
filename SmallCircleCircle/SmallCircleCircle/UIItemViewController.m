@@ -103,7 +103,7 @@
         UILabel* priceLabel = (UILabel*)[cell viewWithTag:2];
         
         nameLabel.text = self.ItemList[indexPath.row][@"name"];
-        priceLabel.text = [self.ItemList[indexPath.row][@"price"] stringValue];
+        priceLabel.text = self.ItemList[indexPath.row][@"price"];
     }
     
     return cell;

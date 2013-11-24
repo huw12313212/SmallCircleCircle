@@ -212,7 +212,7 @@ long fee;
             
             
             name.text = currentEntry[@"name"];
-            price.text =[currentEntry[@"price"] stringValue];
+            price.text =currentEntry[@"price"];
             total.text =[NSString stringWithFormat:@"× %@ = %@" ,currentEntry[@"count"], currentEntry[@"total"]];
             
         }
