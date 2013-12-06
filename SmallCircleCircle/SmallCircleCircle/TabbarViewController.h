@@ -13,4 +13,6 @@
 @property (nonatomic,strong) NSDictionary* activityDetail;
 @property (nonatomic,strong) NSArray* buyList;
 
+-(void)updateData;
+
 @end

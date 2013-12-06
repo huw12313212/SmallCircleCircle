@@ -51,8 +51,22 @@ int totalMoney = 0;
 
 - (void)viewDidLoad
 {
- 
     
+    [super viewDidLoad];
+
+       [self.tableView setContentInset:UIEdgeInsetsMake(66,0,0,0)];
+    //NSLog(@"hello");
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+
+-(void)updateData;
+{
     totalMoney = 0;
     
     NSArray* itemList = self.activityDetail[@"items"];
@@ -86,18 +100,8 @@ int totalMoney = 0;
     
     totalMoney += [self.activityDetail[@"fee"][@"feeAmount"] integerValue];
     
-    
-    [super viewDidLoad];
-
-       [self.tableView setContentInset:UIEdgeInsetsMake(66,0,0,0)];
-    //NSLog(@"hello");
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        [self.tableView reloadData];
 }
-
 
 - (void)didReceiveMemoryWarning
 {

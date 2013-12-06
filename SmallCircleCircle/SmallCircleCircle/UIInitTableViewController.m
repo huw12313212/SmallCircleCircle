@@ -265,12 +265,19 @@ enum AcitivityType
         NSIndexPath * path = [self.tableView indexPathForCell:sender];
         NSString* ActivityID = self.CreatedAcitivities[path.row][@"id"];
         
-        
+        dispatch_async( dispatch_get_main_queue(), ^{
+
         NSDictionary* activityDetail = [self.Database GetActivityDetail:ActivityID];
         NSArray* buyList = [self.Database GetBuyList:ActivityID];
+            
+            viewController.activityDetail = activityDetail;
+            viewController.buyList = buyList;
+            
+            [viewController updateData];
+            
+        });
         
-        viewController.activityDetail = activityDetail;
-        viewController.buyList = buyList;
+
     }
     else if([segue.identifier isEqual:@"joinDetail"])
     {

@@ -55,10 +55,12 @@ static JoinedBuyDetailViewController* _instance;
     
     self.locationDictionary = [[NSMutableDictionary alloc] init];
     
-//   // NSLog(@"offset %lf",self.tableView.contentOffset.y);
-//    [self.tableView setContentOffset:CGPointMake(0, -100)];
-//    
-//    NSLog(@"offset %lf",self.tableView.contentOffset.y);
+
+    
+}
+
+-(void)updateData
+{
     for(int i = 0;i<self.buyList.count;i++)
     {
         NSDictionary* nowBuy = self.buyList[i];
@@ -77,16 +79,11 @@ static JoinedBuyDetailViewController* _instance;
         [array addObject:nowBuy];
     }
     
-   // CGRect rec = self.tableView.frame;
-    
-    
-
-    //NSLog(@"buyList : %@",self.buyList);
-      //  NSLog(@"activity : %@",self.activityDetail);
     
     self.locationArray = [self.locationDictionary allValues];
     self.locationNameArray = [self.locationDictionary allKeys];
     
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

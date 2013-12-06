@@ -30,21 +30,29 @@
     
         //NSLog(@"hello3 %@",self.buyList);
 
-            TotalBuyTableViewController* totalBuy = [TotalBuyTableViewController GetInstance];
-    
-            totalBuy.activityDetail = self.activityDetail;
-            totalBuy.buyList = self.buyList;
-    
-            JoinedBuyDetailViewController* joined = [JoinedBuyDetailViewController GetInstance];
-    
-    joined.activityDetail = self.activityDetail;
-    joined.buyList = self.buyList;
+
 
     
     //self.tabBarController.t
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+-(void)updateData
+{
+    TotalBuyTableViewController* totalBuy = [TotalBuyTableViewController GetInstance];
+    
+    totalBuy.activityDetail = self.activityDetail;
+    totalBuy.buyList = self.buyList;
+    
+    JoinedBuyDetailViewController* joined = [JoinedBuyDetailViewController GetInstance];
+    
+    joined.activityDetail = self.activityDetail;
+    joined.buyList = self.buyList;
+    [totalBuy updateData];
+    [joined updateData];
+    
 }
 
 - (void)didReceiveMemoryWarning

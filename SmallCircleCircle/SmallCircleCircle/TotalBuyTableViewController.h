@@ -15,4 +15,6 @@
 @property (nonatomic,weak) NSDictionary* activityDetail;
 @property (nonatomic,weak) NSArray* buyList;
 
+-(void)updateData;
+
 @end
