@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="0ae-sq-Xql">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Init Table View Controller - 團購小圈圈-->
@@ -250,6 +250,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="KtH-4W-Tk8"/>
                         <barButtonItem key="rightBarButtonItem" title="Join" id="F6k-fk-J0k">
                             <connections>
+                                <action selector="JoinClicked:" destination="ieK-gD-NnX" id="uoh-xf-nTQ"/>
                                 <segue destination="rt2-s8-AMM" kind="push" identifier="Next" id="lrV-zk-jWk"/>
                             </connections>
                         </barButtonItem>
@@ -573,7 +574,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="2013/10/22" minimumFontSize="17" id="UD1-Gm-cZi">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2013/12/22 上午11:59:59" borderStyle="roundedRect" placeholder="2013/12/22 上午11:59:59" minimumFontSize="17" id="UD1-Gm-cZi">
                                         <rect key="frame" x="96" y="222" width="204" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -589,16 +590,16 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="091234567" minimumFontSize="17" id="0Oj-dd-KFu">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0912345678" borderStyle="roundedRect" placeholder="091234567" minimumFontSize="17" id="0Oj-dd-KFu">
                                         <rect key="frame" x="96" y="184" width="204" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES" link="YES"/>
                                         </accessibility>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="qgF-KD-O2U">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="我想要買iPhone5s" id="qgF-KD-O2U">
                                         <rect key="frame" x="96" y="10" width="204" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -612,7 +613,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="女生優先" minimumFontSize="17" id="0xI-Xx-pdD">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="台大學生佳" borderStyle="roundedRect" placeholder="女生優先" minimumFontSize="17" id="0xI-Xx-pdD">
                                         <rect key="frame" x="96" y="336" width="204" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -621,7 +622,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="臺大領貨" minimumFontSize="17" id="1un-fD-8af">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="臺大領貨" borderStyle="roundedRect" placeholder="臺大領貨" minimumFontSize="17" id="1un-fD-8af">
                                         <rect key="frame" x="96" y="260" width="204" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -630,7 +631,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="小明的iPhone5s團購" minimumFontSize="17" id="F5v-4w-Y5W">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="XX的iPhone5s團購" borderStyle="roundedRect" placeholder="小明的iPhone5s團購" minimumFontSize="17" id="F5v-4w-Y5W">
                                         <rect key="frame" x="96" y="-32" width="204" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -650,14 +651,14 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://store.apple.com/tw" minimumFontSize="17" id="H03-lr-hY8">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://yahoo.com.tw" borderStyle="roundedRect" placeholder="http://store.apple.com/tw" minimumFontSize="17" id="H03-lr-hY8">
                                         <rect key="frame" x="96" y="146" width="204" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES" link="YES"/>
                                         </accessibility>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出團條件" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bm2-Jb-pSx">
                                         <rect key="frame" x="126" y="382" width="69" height="21"/>
@@ -675,17 +676,17 @@
                                             <action selector="ConstraintClicked:" destination="UGF-nz-OIc" eventType="touchUpInside" id="PMm-56-h1o"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" id="K5e-az-u42">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" minimumFontSize="17" id="K5e-az-u42">
                                         <rect key="frame" x="96" y="411" width="204" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="總運費" minimumFontSize="17" id="Bhe-AX-Xuw">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1000" borderStyle="roundedRect" placeholder="總運費" minimumFontSize="17" id="Bhe-AX-Xuw">
                                         <rect key="frame" x="97" y="298" width="203" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="預估運費" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jew-Jw-EbS">
                                         <rect key="frame" x="20" y="302" width="69" height="21"/>
@@ -701,7 +702,7 @@
                     <navigationItem key="navigationItem" title="建立團購" id="9RI-to-9LX">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="OMq-4v-NdI">
                             <connections>
-                                <segue destination="0gG-gt-urB" kind="push" identifier="Next" id="5yK-ba-Gp7"/>
+                                <action selector="ButtonClicked:" destination="UGF-nz-OIc" id="cTH-Fp-9Sd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -717,6 +718,7 @@
                         <outlet property="ScrollView" destination="HFn-mG-xw6" id="snQ-vm-bJs"/>
                         <outlet property="URL" destination="H03-lr-hY8" id="4ml-I3-CrL"/>
                         <outlet property="phoneNumber" destination="0Oj-dd-KFu" id="lpP-vY-TQR"/>
+                        <segue destination="0gG-gt-urB" kind="push" identifier="Next" id="mRT-P8-WxN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ab-Ft-0iQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -866,10 +868,13 @@
                     <navigationItem key="navigationItem" title="商品" id="9lw-xd-viw">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="G0l-2w-yzt">
                             <connections>
-                                <segue destination="GP3-KW-RIE" kind="push" identifier="Next" id="HNy-80-4Kj"/>
+                                <action selector="NextButton:" destination="0gG-gt-urB" id="VrV-3J-cr1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="GP3-KW-RIE" kind="push" identifier="Next" id="xby-6h-8ja"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvE-ZE-99G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -936,10 +941,13 @@
                     <navigationItem key="navigationItem" title="領貨時段" id="3pg-zv-1uF">
                         <barButtonItem key="rightBarButtonItem" title="Finish" id="tCx-dz-04Q">
                             <connections>
-                                <segue destination="PQE-C0-fiS" kind="push" identifier="Next" id="iQF-Nt-9Ow"/>
+                                <action selector="FinishClicked:" destination="GP3-KW-RIE" id="BRR-ap-AOr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="PQE-C0-fiS" kind="push" identifier="Next" id="cWq-tv-rIM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJY-1j-QK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1018,7 +1026,7 @@
                                 <rect key="frame" x="65" y="129" width="230" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IOm-gi-QWA">
                                 <rect key="frame" x="254" y="167" width="46" height="30"/>

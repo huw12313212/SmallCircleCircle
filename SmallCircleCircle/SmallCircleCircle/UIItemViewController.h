@@ -14,5 +14,6 @@
 @property (strong,nonatomic)NSMutableArray* ItemList;
 @property (nonatomic,strong)NSMutableDictionary* dictionary;
 @property bool Creating;
+- (IBAction)NextButton:(UIBarButtonItem *)sender;
 
 @end

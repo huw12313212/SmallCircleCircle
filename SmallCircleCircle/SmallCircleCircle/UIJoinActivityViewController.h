@@ -11,6 +11,7 @@
 @interface UIJoinActivityViewController : UIViewController
 
 //@property (nonatomic) int ActivityID;
+- (IBAction)JoinClicked:(id)sender;
 
 @property bool Join;
 

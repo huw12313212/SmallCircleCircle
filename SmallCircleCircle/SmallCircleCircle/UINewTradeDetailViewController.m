@@ -20,6 +20,17 @@
 
 - (IBAction)Confirm:(id)sender {
     
+    if([self.Location.text length]<=1)
+    {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"未輸入地點" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+    [alert show];
+        return;
+    }
+    
+    
+    
+    
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
     
     NSString *dateString;

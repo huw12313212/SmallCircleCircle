@@ -13,5 +13,6 @@
 @property (nonatomic,strong)NSMutableDictionary* dictionary;
 @property bool Creating;
 -(void)updateData;
+- (IBAction)FinishClicked:(UIBarButtonItem *)sender;
 
 @end

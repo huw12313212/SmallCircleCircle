@@ -123,6 +123,19 @@
     return cell;
 }
 
+- (IBAction)FinishClicked:(UIBarButtonItem *)sender
+{
+    if(self.EntryList.count < 1)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"請輸入至少一個取貨時段" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"Next" sender:sender];
+    }
+    
+}
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {

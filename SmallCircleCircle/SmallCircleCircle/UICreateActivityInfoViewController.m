@@ -48,6 +48,76 @@ UIGestureRecognizer *tapper;
 }
 
 
+- (IBAction)ButtonClicked:(UIBarButtonItem *)sender
+{
+    //NSLog(@"test");
+    
+    if([self isValidate])
+    {
+        [self performSegueWithIdentifier:@"Next" sender:sender];
+    }
+}
+
+-(bool)isValidate
+{
+
+    NSString *urlRegEx =
+    @"(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
+    NSPredicate *urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
+    
+    NSString* phoneRegEx= @"^\\(?(\\d{2})\\)?[\\s\\-]?(\\d{4})\\-?(\\d{4})$";
+     NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneRegEx];
+    
+    NSString* RegNumber = @"[0-9]*";
+    NSPredicate* RegNumberTest =[NSPredicate predicateWithFormat:@"SELF MATCHES %@", RegNumber];
+    
+    if([self.ActivityName.text length]<=1)
+    {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"活動名稱不可為空白" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            [alert show];
+        
+        return NO;
+    }
+    else if([self.Description.text length]<=1)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"簡介不可為空白" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    else if(![urlTest evaluateWithObject:self.URL.text])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"請輸入合法網址" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    else if(![phoneTest evaluateWithObject: self.phoneNumber.text])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"電話格式錯誤" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    else if(![phoneTest evaluateWithObject: self.phoneNumber.text])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"電話格式錯誤" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    else if(![RegNumberTest evaluateWithObject :self.ConstraintNumber.text]||[self.ConstraintNumber.text length]<1)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"請輸入出團條件" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    else if(![RegNumberTest evaluateWithObject :self.Fee.text]||[self.Fee.text length]<1)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"請輸入預估運費" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    
+    return YES;
+}
+
 - (id)initWithCoder:(NSCoder *)c
 {
     self = [super initWithCoder:c];
@@ -56,6 +126,8 @@ UIGestureRecognizer *tapper;
         self.Database = [FakeDB GetDBInstance];
 
         //ScrollView set
+        
+        //self.navigationController.navigationItem.rightBarButtonItem set
         
     }
     return self;

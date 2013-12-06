@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UICreateActivityInfoViewController : UIViewController
+- (IBAction)ButtonClicked:(UIBarButtonItem *)sender;
 @property (nonatomic,strong)NSMutableDictionary* dictionary;
 @end

@@ -82,6 +82,24 @@
     return data;
 }
 
+- (IBAction)NextButton:(UIBarButtonItem *)sender
+{
+    NSLog(@"Clicked");
+    
+    if([self.ItemList count]<1)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"請輸入至少一項商品" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"Next" sender:sender];
+    }
+    
+    
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -221,7 +239,5 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-
-
 
 @end

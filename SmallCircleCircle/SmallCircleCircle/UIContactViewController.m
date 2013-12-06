@@ -22,7 +22,12 @@
 
 - (IBAction)ClickFinish:(id)sender {
     
-    if(self.PhoneNumber.text.length < 7)
+    
+    NSString* phoneRegEx= @"^\\(?(\\d{2})\\)?[\\s\\-]?(\\d{4})\\-?(\\d{4})$";
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneRegEx];
+    
+    
+    if(![phoneTest evaluateWithObject:self.PhoneNumber.text])
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"聯絡資訊" message:@"請填寫手機號碼" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];

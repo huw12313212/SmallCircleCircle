@@ -35,7 +35,7 @@ const float FAKE_DELAY = 1000;
 }
 
 
-+ (NSCache *)sharedCache {
+-(NSCache *)sharedCache {
     static NSCache *cache;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -136,66 +136,27 @@ const float FAKE_DELAY = 1000;
 }
 
 
--(NSArray*)GetBuyList:(NSString*)activityID //:(NSString *)buyID
+-(NSArray*)GetBuyList:(NSString*)activityID
 {
     
-    NSLog(@"6");
-    /* NSArray *buylist = @[
-     
-     -(NSArray*)GetBuyList:(NSString*)activityID
-     {
-     NSArray *buylist = @[
-     
-     @{
-     @"activityID":@"0",
-     @"buyList":@[@(1),@(5)],
-     @"phone":@"0933228300",
-     @"facebookID":@"0",
-     @"name":@"小熊",
-     @"date":@"2013/10/22 10:00 am",
-     @"location":@"臺大德田館",
-     @"buyid":@"123",
-     @"finished":@(NO),
-     },
-     
-     @{
-     @"activityID":@"0",
-     @"buyList":@[@(1),@(0)],
-     @"phone":@"0933228300",
-     @"facebookID":@"1",
-     @"name":@"包子",
-     @"date":@"2013/10/22 10:00 am",
-     @"location":@"臺大德田館",
-     @"buyid":@"456",
-     @"finished":@(YES),
-     },
-     
-     @{
-     @"activityID":@"0",
-     @"buyList":@[@(1),@(1)],
-     @"phone":@"0933228300",
-     @"facebookID":@"2",
-     @"name":@"昱儒",
-     @"date":@"2013/10/24 12:00 am",
-     @"location":@"公館捷運站",
-     @"buyid":@"789",
-     @"finished":@(NO),
-     },
-     
-     ]; */
-    
-    /* PFQuery * pfobject = [PFQuery queryWithClassName:@"CircleList"];
-     PFObject * circle = [pfobject getObjectWithId:activityID]; */
-    PFQuery * query = [PFQuery queryWithClassName:@"OrderList"];
-    [query whereKey:@"ActivityID" equalTo:activityID];
-    NSMutableArray * buyArray = [[NSMutableArray alloc] init];
-    [buyArray addObjectsFromArray:[query findObjects]];
-    NSMutableArray * buylist = [[NSMutableArray alloc] init];
-    for(PFObject *list in buyArray)
-    {
-        [buylist addObject:@{@"activityID":list[@"ActivityID"],@"buyList":list[@"Detail"][@"buyList"],@"phone":list[@"Detail"][@"phone"],@"facebook":@"0",@"name":@"包子",@"date":list[@"Detail"][@"date"],@"location":list[@"Detail"][@"location"],@"buyid":list.objectId,@"finished":@"NO"}];
+    NSLog(@"6.1");
+    NSString *cacheKey = [NSString stringWithFormat:@"GetBuyList-%@", activityID];
+    NSArray *result =  [[self sharedCache] objectForKey:cacheKey];
+    if(!result){
+        NSLog(@"6.2");
+        PFQuery * query = [PFQuery queryWithClassName:@"OrderList"];
+        [query whereKey:@"ActivityID" equalTo:activityID];
+        NSMutableArray * buyArray = [[NSMutableArray alloc] init];
+        [buyArray addObjectsFromArray:[query findObjects]];
+        NSMutableArray * buylist = [[NSMutableArray alloc] init];
+        for(PFObject *list in buyArray)
+        {
+            [buylist addObject:@{@"activityID":list[@"ActivityID"],@"buyList":list[@"Detail"][@"buyList"],@"phone":list[@"Detail"][@"phone"],@"facebook":@"0",@"name":@"包子",@"date":list[@"Detail"][@"date"],@"location":list[@"Detail"][@"location"],@"buyid":list.objectId,@"finished":@"NO"}];
+        }
+        result = buylist ;
+        [[self sharedCache] setObject:result forKey:cacheKey];
     }
-    return buylist;
+    return result;
 }
 
 
@@ -204,13 +165,17 @@ const float FAKE_DELAY = 1000;
 -(NSDictionary*)GetActivityDetail:(NSString*)activityID
 {
     NSLog(@"7");
-    
-    [Parse setApplicationId:@"jigcccFU23yCJWb51bJ7Htt70ipoprGeouMUJNBb"
-                  clientKey:@"hmbyJNUBVfjqAWwfwDDTCxfRAOACPqjFrOGaInZB"];
-    PFQuery * pfobject = [PFQuery queryWithClassName:@"CircleList"];
-    PFObject * temp = [pfobject getObjectWithId:activityID];
-    NSMutableDictionary * result = temp[@"Detail"];
-    [result setObject:activityID forKey:@"id"];
+    NSLog([NSString stringWithFormat:@"GetActivityDetail-%@", activityID]);
+    NSString *cacheKey = [NSString stringWithFormat:@"GetActivityDetail-%@", activityID];
+    NSMutableDictionary * result =  [[self sharedCache] objectForKey:cacheKey];
+    if(!result){
+        result = [[NSMutableDictionary alloc] init];
+        PFQuery * pfobject = [PFQuery queryWithClassName:@"CircleList"];
+        PFObject * temp = [pfobject getObjectWithId:activityID];
+        result = temp[@"Detail"];
+        [result setObject:activityID forKey:@"id"];
+        [[self sharedCache] setObject:result forKey:cacheKey];
+    }
     return result;
     
     
@@ -220,19 +185,22 @@ const float FAKE_DELAY = 1000;
 -(NSDictionary*)GetMyBuyListInActivity:(NSString*)facebookID :(NSString*)activityID
 {
     NSLog(@"8");
-    
-    return
-    @{
-      @"activityID":@"0",
-      @"buyList":@[@(1),@(5)],
-      @"phone":@"0933228300",
-      @"facebookID":@"0",
-      @"name":@"小熊",
-      @"date":@"2013/10/22 10:00 am",
-      @"location":@"臺大德田館",
-      @"buyid":@"123",
-      @"finished":@(NO),
-      };
+    PFQuery * query = [PFQuery queryWithClassName:@"OrderList"];
+  //  [query whereKey:@"userID" equalTo:facebookID];
+    PFObject *  queryObject = [query getObjectWithId:activityID];
+    NSDictionary * result =     @{
+                                  @"activityID":queryObject[@"ActivityID"],
+                                  @"buyList":queryObject[@"Detail"][@"buyList"],
+                                  @"phone":queryObject[@"Detail"][@"phone"],
+                                  @"facebookID":queryObject[@"userID"],
+                                  @"name":@"小熊",
+                                  @"date":queryObject[@"Detail"][@"date"],
+                                  @"location":queryObject[@"Detail"][@"location"],
+                                  @"buyid":queryObject.objectId,
+                                  @"finished":@(NO),
+                                  };
+    return result ;
+
 }
 
 

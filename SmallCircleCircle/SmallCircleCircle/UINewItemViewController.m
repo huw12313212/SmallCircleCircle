@@ -20,6 +20,32 @@
 - (IBAction)Comfirm:(id)sender {
     
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
+    
+    
+    
+    if([self.Name.text length]<=1)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"請輸入商品名稱" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return;
+    }
+    
+    
+    NSString* RegNumber = @"[0-9]*";
+    NSPredicate* RegNumberTest =[NSPredicate predicateWithFormat:@"SELF MATCHES %@", RegNumber];
+    
+    if(![RegNumberTest evaluateWithObject:self.Price.text]||[self.Price.text length]<1)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"價格不符合格式" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+        return;
+    }
+  
+    
+    
     [dictionary setObject:self.Name.text forKey:@"name"];
     [dictionary setObject:self.Price.text forKey:@"price"];
     
