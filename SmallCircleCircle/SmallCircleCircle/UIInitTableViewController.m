@@ -39,19 +39,22 @@ enum AcitivityType
     self = [super initWithCoder:c];
     if (self) {
         
+        dispatch_async( dispatch_get_main_queue(), ^{
+
         self.Database = [FakeDB GetDBInstance];
         self.CreatedAcitivities = [self.Database GetCreatedActivity : @"0"];
-        self.JoinedAcitivities = [self.Database GetJoinedActivity : @"0"];
+            self.JoinedAcitivities = [self.Database GetJoinedActivity : @"0"];
+        
+            
+            [self.tableView reloadData];
+        });
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add:)];
-        
-        
-        
         UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:@"Share" action:@selector(share:)];
         UIMenuItem *menuItem2 = [[UIMenuItem alloc] initWithTitle:@"Detail" action:@selector(detail:)];
         [[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:menuItem,menuItem2,nil] ];
         [[UIMenuController sharedMenuController] update];
-        
+
         
     }
     return self;
@@ -119,12 +122,16 @@ enum AcitivityType
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if(self.JoinedAcitivities == nil)return 0;
+    
     return TypeCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //return 0;
+    
+    
     
     switch (section)
     {
@@ -314,6 +321,7 @@ enum AcitivityType
     }
     else if([segue.identifier isEqual:@"Detail"])
     {
+        
         DetailPageViewController* detail =  segue.destinationViewController;
         
         if(self.path.section == 0)

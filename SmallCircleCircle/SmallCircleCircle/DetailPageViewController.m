@@ -58,6 +58,9 @@
     DatesController.EntryList = self.ActivityDetail[@"tradeDates"];
     
     
+    [ItemsController updateData];
+    [DatesController updateData];
+    
     self.DetailControllers = @[controller,ItemsController,DatesController];
     
     
