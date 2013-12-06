@@ -17,6 +17,7 @@
 		8A58B45A183B7E44003F9A93 /* RecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A58B459183B7E44003F9A93 /* RecipeViewController.m */; };
 		8A62C25D18379EB40039E173 /* UIItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A62C25C18379EB40039E173 /* UIItemViewController.m */; };
 		8A62C2601837A9380039E173 /* UINewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A62C25F1837A9380039E173 /* UINewItemViewController.m */; };
+		8A6360A3185208CE00D175F8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6360A2185208CE00D175F8 /* Parse.framework */; };
 		8A7F1360183A02A400F93D52 /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F135F183A02A400F93D52 /* TabbarViewController.m */; };
 		8A7F1363183A112100F93D52 /* TotalBuyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F1362183A112100F93D52 /* TotalBuyTableViewController.m */; };
 		8AAC3E4A183749710045391A /* UICreateActivityInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC3E49183749710045391A /* UICreateActivityInfoViewController.m */; };
@@ -27,7 +28,6 @@
 		8AC1CF67183A752A00F26645 /* JoinedBuyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1CF66183A752A00F26645 /* JoinedBuyDetailViewController.m */; };
 		8ACDA1A018368ED200120873 /* UIInitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDA19F18368ED200120873 /* UIInitTableViewController.m */; };
 		8ACDA1A61836945000120873 /* FakeDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACDA1A51836945000120873 /* FakeDB.m */; };
-		8AD4607618421F5C00FF141F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD4607518421F5C00FF141F /* Parse.framework */; };
 		8AD4607818421F6E00FF141F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD4607718421F6E00FF141F /* AudioToolbox.framework */; };
 		8AD4607A18421F7600FF141F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD4607918421F7600FF141F /* CFNetwork.framework */; };
 		8AD4607C18421F7E00FF141F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD4607B18421F7E00FF141F /* CoreLocation.framework */; };
@@ -83,6 +83,8 @@
 		8A62C25C18379EB40039E173 /* UIItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemViewController.m; sourceTree = "<group>"; };
 		8A62C25E1837A9380039E173 /* UINewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINewItemViewController.h; sourceTree = "<group>"; };
 		8A62C25F1837A9380039E173 /* UINewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINewItemViewController.m; sourceTree = "<group>"; };
+		8A6360A1185207B800D175F8 /* NTU_Class_Wildcard.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = NTU_Class_Wildcard.mobileprovision; sourceTree = "<group>"; };
+		8A6360A2185208CE00D175F8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8A7F135E183A02A400F93D52 /* TabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarViewController.h; sourceTree = "<group>"; };
 		8A7F135F183A02A400F93D52 /* TabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarViewController.m; sourceTree = "<group>"; };
 		8A7F1361183A112100F93D52 /* TotalBuyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalBuyTableViewController.h; sourceTree = "<group>"; };
@@ -104,7 +106,6 @@
 		8ACDA1A3183691F100120873 /* DBQueryInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBQueryInterface.h; sourceTree = "<group>"; };
 		8ACDA1A41836945000120873 /* FakeDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeDB.h; sourceTree = "<group>"; };
 		8ACDA1A51836945000120873 /* FakeDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeDB.m; sourceTree = "<group>"; };
-		8AD4607518421F5C00FF141F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8AD4607718421F6E00FF141F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8AD4607918421F7600FF141F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		8AD4607B18421F7E00FF141F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -138,18 +139,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD4607E18421F8A00FF141F /* libz.1.1.3.dylib in Frameworks */,
 				8AD4608818421FAB00FF141F /* SystemConfiguration.framework in Frameworks */,
 				8AD4608618421FA400FF141F /* StoreKit.framework in Frameworks */,
 				8AD4608418421F9F00FF141F /* Security.framework in Frameworks */,
 				8AD4608218421F9800FF141F /* QuartzCore.framework in Frameworks */,
 				8AD4608018421F9200FF141F /* MobileCoreServices.framework in Frameworks */,
-				8AD4607E18421F8A00FF141F /* libz.1.1.3.dylib in Frameworks */,
+				8A6360A3185208CE00D175F8 /* Parse.framework in Frameworks */,
 				8AEA1E371835E6F2003EA73D /* CoreGraphics.framework in Frameworks */,
 				8AD4607C18421F7E00FF141F /* CoreLocation.framework in Frameworks */,
 				8AD4607A18421F7600FF141F /* CFNetwork.framework in Frameworks */,
 				8AD4607818421F6E00FF141F /* AudioToolbox.framework in Frameworks */,
 				8AEA1E391835E6F2003EA73D /* UIKit.framework in Frameworks */,
-				8AD4607618421F5C00FF141F /* Parse.framework in Frameworks */,
 				8AEA1E351835E6F2003EA73D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +261,8 @@
 		8AEA1E331835E6F2003EA73D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A6360A2185208CE00D175F8 /* Parse.framework */,
+				8A6360A1185207B800D175F8 /* NTU_Class_Wildcard.mobileprovision */,
 				8AD4608718421FAB00FF141F /* SystemConfiguration.framework */,
 				8AD4608518421FA400FF141F /* StoreKit.framework */,
 				8AD4608318421F9F00FF141F /* Security.framework */,
@@ -269,7 +272,6 @@
 				8AD4607B18421F7E00FF141F /* CoreLocation.framework */,
 				8AD4607918421F7600FF141F /* CFNetwork.framework */,
 				8AD4607718421F6E00FF141F /* AudioToolbox.framework */,
-				8AD4607518421F5C00FF141F /* Parse.framework */,
 				8AEA1E341835E6F2003EA73D /* Foundation.framework */,
 				8AEA1E361835E6F2003EA73D /* CoreGraphics.framework */,
 				8AEA1E381835E6F2003EA73D /* UIKit.framework */,

@@ -45,7 +45,7 @@
         self.ItemList = [[NSMutableArray alloc]init];
     }
 
-    // Uncomment the following line to preserve selection between presentations.
+        // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -104,9 +104,46 @@
         
         nameLabel.text = self.ItemList[indexPath.row][@"name"];
         priceLabel.text = self.ItemList[indexPath.row][@"price"];
+        
+        cell.editing = true;
     }
     
     return cell;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([self.ItemList count] == indexPath.row)
+    {
+        return UITableViewCellEditingStyleNone;
+    }
+    else
+    {
+        return UITableViewCellEditingStyleDelete;
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    if([self.ItemList count] == indexPath.row)
+    {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        
+        [self.ItemList removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
 
 -(void)updateData
@@ -175,6 +212,8 @@
         tradeDetail.dictionary = self.dictionary;
         
         tradeDetail.Creating = true;
+        
+        
          // NSLog(@"%@",self.dictionary);
         
     }
