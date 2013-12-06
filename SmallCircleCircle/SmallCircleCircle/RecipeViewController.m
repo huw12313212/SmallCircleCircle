@@ -43,11 +43,15 @@ long fee;
 {
     [super viewDidLoad];
     
+}
+
+-(void) updateData
+{
     [self calculateAllData];
     myTotal = 0;
     myItemNumber = 0;
     fee = 0;
-
+    
     self.itemData = [[NSMutableArray alloc]init];
     
     NSArray* itemList = self.activityDetail[@"items"];
@@ -82,6 +86,9 @@ long fee;
     {
         fee = totalFee * myTotal / allTotal;
     }
+    
+    NSLog(@"reloading Data");
+    [self.tableView reloadData];
     
 }
 
@@ -123,6 +130,8 @@ long fee;
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
+    
+    if( self.buyList == nil)return 0;
     
     if(self.mode == forHost)
     {

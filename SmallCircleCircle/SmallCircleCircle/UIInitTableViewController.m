@@ -282,14 +282,22 @@ enum AcitivityType
            NSString* ActivityID = self.JoinedAcitivities[path.row][@"id"];
         
         
-        NSDictionary* detail = [self.Database GetActivityDetail:ActivityID];
-        NSArray* buyList = [self.Database GetBuyList:ActivityID];
-        NSDictionary* buyEntry = [self.Database GetMyBuyListInActivity:@"0" :@"0"];
-        
-        recipe.activityDetail = detail;
-        recipe.buyList = buyList;
-        recipe.buyEntry = buyEntry;
+        dispatch_async( dispatch_get_main_queue(), ^{
+            NSDictionary* detail = [self.Database GetActivityDetail:ActivityID];
+            NSArray* buyList = [self.Database GetBuyList:ActivityID];
+            NSDictionary* buyEntry = [self.Database GetMyBuyListInActivity:@"0" :@"0"];
+            
+            recipe.activityDetail = detail;
+            recipe.buyList = buyList;
+            recipe.buyEntry = buyEntry;
+   
+            
+            NSLog(@"data get");
+            [recipe updateData];
+        });
+
         recipe.mode = forJoin;
+
     }
     else if([segue.identifier isEqual:@"OpenURL"])
     {

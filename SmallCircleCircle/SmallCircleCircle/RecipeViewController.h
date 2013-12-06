@@ -20,4 +20,6 @@ enum RecipeMode
 @property  (nonatomic,strong)NSArray* buyList;
 @property  (nonatomic,strong)NSDictionary* buyEntry;
 
+-(void) updateData;
+
 @end
