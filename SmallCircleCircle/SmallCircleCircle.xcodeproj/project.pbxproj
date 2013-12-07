@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1200BB185307FC004BB6A8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1200BA185307FC004BB6A8 /* FacebookSDK.framework */; };
 		8A18A81C1839233500B977B2 /* UIEngagedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18A81B1839233500B977B2 /* UIEngagedViewController.m */; };
 		8A18A81F18392FB100B977B2 /* UIContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18A81E18392FB100B977B2 /* UIContactViewController.m */; };
 		8A557AAD1840F44F00129B50 /* DetailPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A557AAC1840F44F00129B50 /* DetailPageViewController.m */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A1200BA185307FC004BB6A8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		8A18A81A1839233500B977B2 /* UIEngagedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIEngagedViewController.h; sourceTree = "<group>"; };
 		8A18A81B1839233500B977B2 /* UIEngagedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIEngagedViewController.m; sourceTree = "<group>"; };
 		8A18A81D18392FB100B977B2 /* UIContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIContactViewController.h; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				8AD4607818421F6E00FF141F /* AudioToolbox.framework in Frameworks */,
 				8AEA1E391835E6F2003EA73D /* UIKit.framework in Frameworks */,
 				8AEA1E351835E6F2003EA73D /* Foundation.framework in Frameworks */,
+				8A1200BB185307FC004BB6A8 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +264,7 @@
 		8AEA1E331835E6F2003EA73D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A1200BA185307FC004BB6A8 /* FacebookSDK.framework */,
 				8A6360A2185208CE00D175F8 /* Parse.framework */,
 				8A6360A1185207B800D175F8 /* NTU_Class_Wildcard.mobileprovision */,
 				8AD4608718421FAB00FF141F /* SystemConfiguration.framework */,
@@ -372,6 +376,7 @@
 				ORGANIZATIONNAME = "王 瀚宇";
 				TargetAttributes = {
 					8AEA1E301835E6F2003EA73D = {
+						DevelopmentTeam = QKNZ2N2P2F;
 						SystemCapabilities = {
 							com.apple.iOS = {
 								enabled = 0;
@@ -576,6 +581,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/huw12313212/SmallCircleCircle/SmallCircleCircle,
@@ -593,6 +599,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/huw12313212/SmallCircleCircle/SmallCircleCircle,

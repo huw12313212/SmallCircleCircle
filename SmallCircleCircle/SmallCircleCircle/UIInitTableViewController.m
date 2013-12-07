@@ -14,6 +14,7 @@
 #import "RecipeViewController.h"
 #import "UICompleteViewController.h"
 #import "DetailPageViewController.h"
+#import "huwAppDelegate.h"
 
 @interface UIInitTableViewController ()
 
@@ -39,15 +40,6 @@ enum AcitivityType
     self = [super initWithCoder:c];
     if (self) {
         
-        dispatch_async( dispatch_get_main_queue(), ^{
-
-        self.Database = [FakeDB GetDBInstance];
-        self.CreatedAcitivities = [self.Database GetCreatedActivity : @"0"];
-            self.JoinedAcitivities = [self.Database GetJoinedActivity : @"0"];
-        
-            
-            [self.tableView reloadData];
-        });
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add:)];
         UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:@"Share" action:@selector(share:)];
@@ -74,9 +66,91 @@ enum AcitivityType
 
 - (void)viewDidLoad
 {
+    [self updateView];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:USER_PLIST];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if (![fileManager fileExistsAtPath: path])
+    {
+        path = [documentsDirectory stringByAppendingPathComponent: [NSString stringWithFormat: USER_PLIST] ];
+    }
+    
+    NSMutableDictionary *data;
+    
+    if ([fileManager fileExistsAtPath: path])
+    {
+        data = [[NSMutableDictionary alloc] initWithContentsOfFile: path];
+        
+        NSLog(@"id :%@, name:%@",data[USER_ID],data[USER_NAME]);
+        
+        [huwAppDelegate setFB_ID:data[USER_ID]];
+        [huwAppDelegate setFB_Name:data[USER_NAME]];
+        
+        dispatch_async( dispatch_get_main_queue(), ^{
+            
+            self.Database = [FakeDB GetDBInstance];
+            self.CreatedAcitivities = [self.Database GetCreatedActivity : [huwAppDelegate FB_ID]];
+            self.JoinedAcitivities = [self.Database GetJoinedActivity : [huwAppDelegate FB_ID]];
+            
+            
+            [self.tableView reloadData];
+        });
+    }
+    
+
+    
+
+    
+   /* else
+    {
+        // If the file doesn’t exist, create an empty dictionary
+        data = [[NSMutableDictionary alloc] init];
+    }*/
+    
+    //To insert the data into the plist
+    //int value = 5;
+    
+    /*
+    [data setObject:@"Wang Han-Yu" forKey:USER_NAME];
+    [data setObject:@"100002002364018" forKey:USER_ID];
+    
+    [data writeToFile: path atomically:YES];
+    
+    NSLog(@"setData");
+     */
+
+    //To reterive the data from the plist
+    /*
+    NSMutableDictionary *savedStock = [[NSMutableDictionary alloc] initWithContentsOfFile: path];
+    int value1;
+    value1 = [[savedStock objectForKey:@"value"] intValue];
+    NSLog(@"%i",value1);
+    [savedStock release];
+     */
     
     
-    [super viewDidLoad];
+    
+   // facebook login
+   /*
+    huwAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if (!appDelegate.session.isOpen) {
+        // create a fresh session object
+        appDelegate.session = [[FBSession alloc] init];
+        
+        if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
+            // even though we had a cached token, we need to login to make the session usable
+            [appDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                             FBSessionState status,
+                                                             NSError *error) {
+                [self updateView];
+                
+            }];
+        }
+    }*/
+    
 
 }
 
@@ -337,6 +411,72 @@ enum AcitivityType
 }
 
 
+
+- (void)updateView {
+    // get the app delegate, so that we can reference the session property
+    huwAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if (appDelegate.session.isOpen) {
+        NSString* getURL = [NSString stringWithFormat:@"https://graph.facebook.com/me?access_token=%@",appDelegate.session.accessTokenData.accessToken];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:getURL]
+                                                               cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                           timeoutInterval:10];
+        [request setHTTPMethod: @"GET"];
+        
+        [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            
+            NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+
+            
+            
+            [self.LoginButton setTitle:jsonDictionary[@"name"] forState:UIControlStateNormal];
+            
+            NSLog(@"User Id:%@",jsonDictionary[@"id"]);
+            NSLog(@"User Name:%@",jsonDictionary[@"name"]);
+            
+        }];
+        
+
+        
+    } else {
+        
+
+         [self.LoginButton setTitle:@"Guest" forState:UIControlStateNormal];
+    }
+}
+
+
+
+
+- (IBAction)Login:(id)sender {
+    huwAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if (appDelegate.session.isOpen) {
+        // if a user logs out explicitly, we delete any cached token information, and next
+        // time they run the applicaiton they will be presented with log in UX again; most
+        // users will simply close the app or switch away, without logging out; this will
+        // cause the implicit cached-token login to occur on next launch of the application
+        
+        NSLog(@"logOut");
+        
+        [appDelegate.session closeAndClearTokenInformation];
+        
+    } else {
+        if (appDelegate.session.state != FBSessionStateCreated) {
+            // Create a new, logged out session.
+            appDelegate.session = [[FBSession alloc] init];
+        }
+        
+        NSLog(@"logIn");
+        
+        // if the session isn't open, let's open it now and present the login UX to the user
+        [appDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                         FBSessionState status,
+                                                         NSError *error) {
+            
+            [self updateView];
+        }];
+    }
+
+}
 
 
 

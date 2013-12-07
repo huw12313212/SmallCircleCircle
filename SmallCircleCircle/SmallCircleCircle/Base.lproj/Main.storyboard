@@ -115,8 +115,23 @@
                             <outlet property="delegate" destination="Ejf-Ld-jV3" id="45r-mR-shU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="團購小圈圈" id="BNL-vt-LlY"/>
+                    <navigationItem key="navigationItem" title="團購小圈圈" id="BNL-vt-LlY">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="MA4-dC-GHP">
+                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nqR-mU-Zd1">
+                                <rect key="frame" x="16" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="登入">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Login:" destination="Ejf-Ld-jV3" eventType="touchUpInside" id="pQf-vv-d55"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="LoginButton" destination="nqR-mU-Zd1" id="ste-dE-NC7"/>
                         <segue destination="UGF-nz-OIc" kind="push" identifier="CreateActivity" id="D69-CC-s6n"/>
                         <segue destination="ieK-gD-NnX" kind="push" identifier="OpenURL" id="Yqp-5T-hvA"/>
                         <segue destination="BQ9-P1-Eii" kind="push" identifier="Detail" id="ZKv-NC-sFh"/>

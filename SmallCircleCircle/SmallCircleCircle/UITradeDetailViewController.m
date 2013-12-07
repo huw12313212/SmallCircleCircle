@@ -10,6 +10,7 @@
 #import "UINewTradeDetailViewController.h"
 #import "FakeDB.h"
 #import "UICompleteViewController.h"
+#import "huwAppDelegate.h"
 @interface UITradeDetailViewController ()
 
 
@@ -49,6 +50,21 @@
         [self.tableView setContentInset:UIEdgeInsetsMake(0,0,0,0)];
     }
     
+    
+    
+    huwAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if (!appDelegate.session.isOpen) {
+        // create a fresh session object
+        appDelegate.session = [[FBSession alloc] init];
+        
+        if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
+            // even though we had a cached token, we need to login to make the session usable
+            [appDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                             FBSessionState status,
+                                                             NSError *error) {
+            }];
+        }
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -125,6 +141,8 @@
 
 - (IBAction)FinishClicked:(UIBarButtonItem *)sender
 {
+
+    
     if(self.EntryList.count < 1)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"資料錯誤" message:@"請輸入至少一個取貨時段" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
@@ -132,10 +150,91 @@
     }
     else
     {
-        [self performSegueWithIdentifier:@"Next" sender:sender];
+        sender.enabled = false;
+        huwAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+        if (appDelegate.session.isOpen) {
+
+            [self updateView];
+
+            
+        } else {
+            if (appDelegate.session.state != FBSessionStateCreated) {
+                // Create a new, logged out session.
+                appDelegate.session = [[FBSession alloc] init];
+            }
+            
+            NSLog(@"logIn");
+            
+            // if the session isn't open, let's open it now and present the login UX to the user
+            [appDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                             FBSessionState status,
+                                                             NSError *error) {
+                
+                [self updateView];
+            }];
+        }
+
+        
+        
+        
     }
     
 }
+
+
+- (void)updateView {
+    // get the app delegate, so that we can reference the session property
+    huwAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if (appDelegate.session.isOpen) {
+        NSString* getURL = [NSString stringWithFormat:@"https://graph.facebook.com/me?access_token=%@",appDelegate.session.accessTokenData.accessToken];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:getURL]
+                                                               cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                           timeoutInterval:10];
+        [request setHTTPMethod: @"GET"];
+        
+        [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            
+            NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            
+
+            NSLog(@"User Id:%@",jsonDictionary[@"id"]);
+            NSLog(@"User Name:%@",jsonDictionary[@"name"]);
+            
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0];
+            NSString *path = [documentsDirectory stringByAppendingPathComponent:USER_PLIST];
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            
+            if (![fileManager fileExistsAtPath: path])
+            {
+                path = [documentsDirectory stringByAppendingPathComponent: [NSString stringWithFormat: USER_PLIST] ];
+            }
+            
+            NSMutableDictionary *userData = [[NSMutableDictionary alloc]init];
+            
+            
+            [userData setObject:jsonDictionary[@"id"] forKey:USER_ID];
+            [userData setObject:jsonDictionary[@"name"] forKey:USER_NAME];
+            
+            
+            [userData writeToFile: path atomically:YES];
+            
+            
+             self.navigationItem.rightBarButtonItem.enabled = true;
+            [self performSegueWithIdentifier:@"Next" sender:nil];
+            
+        }];
+        
+        
+        
+    } else {
+        
+        self.navigationItem.rightBarButtonItem.enabled = true;
+        
+    }
+}
+
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {

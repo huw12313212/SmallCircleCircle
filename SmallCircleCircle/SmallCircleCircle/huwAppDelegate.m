@@ -10,8 +10,29 @@
 
 @implementation huwAppDelegate
 
+@synthesize session = _session;
 static bool _isURL = false;
 static NSString* _openID = @"-1";
+static NSString* _userID= @"0";
+static NSString* _name = @"guest";
+
++ (NSString*)FB_ID
+{
+    return _userID;
+}
+
++ (void)setFB_ID:(NSString*) userID
+{
+    _userID = userID;
+}
++ (NSString*)FB_Name
+{
+    return _name;
+}
++ (void)setFB_Name:(NSString*) name
+{
+    _name = name;
+}
 
 + (bool) isURL
 {
@@ -45,6 +66,15 @@ static NSString* _openID = @"-1";
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     // Handle url request.
     
+    NSRange range = [[url absoluteString]rangeOfString:@"fb"];
+    if(range.length>0&&range.location==0)
+    {
+        [FBAppCall handleOpenURL:url
+               sourceApplication:sourceApplication
+                     withSession:self.session];
+    }
+    else
+    {
     NSString* activityID = [[url absoluteString]substringFromIndex:6];
 
     _isURL = YES;
@@ -62,6 +92,7 @@ static NSString* _openID = @"-1";
     
     [nowController popToRootViewControllerAnimated:false];
     [nowController.topViewController performSegueWithIdentifier:@"OpenURL" sender:self];
+    }
 
     
     return YES;
@@ -84,14 +115,27 @@ static NSString* _openID = @"-1";
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [FBAppEvents activateApp];
+    
+    /*
+     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+     */
+    
+    // FBSample logic
+    // We need to properly handle activation of the application with regards to SSO
+    //  (e.g., returning from iOS 6.0 authorization dialog or from fast app switching).
+    [FBAppCall handleDidBecomeActiveWithSession:self.session];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)applicationWillTerminate:(UIApplication *)application {
+    // FBSample logic
+    // if the app is going away, we close the session if it is open
+    // this is a good idea because things may be hanging off the session, that need
+    // releasing (completion block, etc.) and other components in the app may be awaiting
+    // close notification in order to do cleanup
+    [self.session close];
 }
+
 
 @end
