@@ -302,6 +302,8 @@
         
         NSString* activityID = [self.Database CreateActivity: [huwAppDelegate FB_ID] :self.dictionary];
         
+        [huwAppDelegate setDirty:YES];
+        
         UICompleteViewController* controller = segue.destinationViewController;
         
         controller.ActivityID = activityID;

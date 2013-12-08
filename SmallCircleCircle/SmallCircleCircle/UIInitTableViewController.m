@@ -64,10 +64,17 @@ enum AcitivityType
     return YES;
 }
 
-- (void)viewDidLoad
+
+
+-(void)viewWillAppear:(BOOL)animated
 {
     [self updateView];
+
+    if([huwAppDelegate dirty])
+    {
     
+        [huwAppDelegate setDirty:false];
+        
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *path = [documentsDirectory stringByAppendingPathComponent:USER_PLIST];
@@ -78,6 +85,7 @@ enum AcitivityType
         path = [documentsDirectory stringByAppendingPathComponent: [NSString stringWithFormat: USER_PLIST] ];
     }
     
+
     NSMutableDictionary *data;
     
     if ([fileManager fileExistsAtPath: path])
@@ -95,15 +103,16 @@ enum AcitivityType
             self.CreatedAcitivities = [self.Database GetCreatedActivity : [huwAppDelegate FB_ID]];
             self.JoinedAcitivities = [self.Database GetJoinedActivity : [huwAppDelegate FB_ID]];
             
-            
             [self.tableView reloadData];
         });
     }
+    }
     
+}
 
-    
+- (void)viewDidLoad
+{
 
-    
    /* else
     {
         // If the file doesn’t exist, create an empty dictionary

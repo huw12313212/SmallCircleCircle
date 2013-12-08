@@ -16,6 +16,18 @@ static NSString* _openID = @"-1";
 static NSString* _userID= @"0";
 static NSString* _name = @"guest";
 
+static bool _isDirty = true;
+
+
++(bool) dirty
+{
+    return _isDirty;
+}
++(void)setDirty:(bool) reload
+{
+    _isDirty =reload;
+}
+
 + (NSString*)FB_ID
 {
     return _userID;

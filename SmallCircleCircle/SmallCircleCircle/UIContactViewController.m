@@ -140,7 +140,10 @@
     
     [dictionary setObject:[huwAppDelegate FB_Name] forKey:@"userName"];
     
+    
+    
     [self.DataBase JoinActivity: [huwAppDelegate FB_ID]:self.ActivityDetail[@"id"]:dictionary];
+    [huwAppDelegate setDirty:YES];
     
 }
 

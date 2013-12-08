@@ -24,6 +24,9 @@
 + (void)setFB_ID:(NSString*) userID;
 + (NSString*)FB_Name;
 + (void)setFB_Name:(NSString*) name;
++(bool) dirty;
++(void)setDirty:(bool) reload;
+
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) FBSession *session;
