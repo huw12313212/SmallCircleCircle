@@ -33,6 +33,19 @@
     return self;
 }
 
+
+- (IBAction)Copy:(id)sender {
+    
+    
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.URL =[NSURL URLWithString:self.URLButton.titleLabel.text];
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"複製完成" message:@"已複製連結，請分享給您的團購好友。" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+    [alert show];
+    
+}
+
 - (void)viewDidLoad
 {
     
@@ -45,6 +58,8 @@
         self.navigationItem.title = @"建立成功";
     }
     
+
+    [self.URLButton setTitle:[NSString stringWithFormat:@"scc://%@", self.ActivityID] forState:UIControlStateNormal];
      //[self.navigationController setNavigationBarHidden:YES animated:YES];
     
     self.Database = [FakeDB GetDBInstance];

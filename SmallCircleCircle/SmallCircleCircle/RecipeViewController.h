@@ -18,7 +18,7 @@ enum RecipeMode
 @property (nonatomic) enum RecipeMode mode;
 @property  (nonatomic,strong)NSDictionary* activityDetail;
 @property  (nonatomic,strong)NSArray* buyList;
-@property  (nonatomic,strong)NSDictionary* buyEntry;
+@property  (nonatomic,strong)NSMutableDictionary* buyEntry;
 
 -(void) updateData;
 

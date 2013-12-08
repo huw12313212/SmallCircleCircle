@@ -150,7 +150,7 @@
     }
     else
     {
-        sender.enabled = false;
+        sender.enabled = NO;
         huwAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
         if (appDelegate.session.isOpen) {
 
@@ -160,7 +160,11 @@
         } else {
             if (appDelegate.session.state != FBSessionStateCreated) {
                 // Create a new, logged out session.
+                
+                  NSLog(@"case1");
                 appDelegate.session = [[FBSession alloc] init];
+                
+              
             }
             
             NSLog(@"logIn");
@@ -170,6 +174,7 @@
                                                              FBSessionState status,
                                                              NSError *error) {
                 
+                  NSLog(@"case2");
                 [self updateView];
             }];
         }
@@ -186,13 +191,15 @@
     // get the app delegate, so that we can reference the session property
     huwAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     if (appDelegate.session.isOpen) {
-        NSString* getURL = [NSString stringWithFormat:@"https://graph.facebook.com/me?access_token=%@",appDelegate.session.accessTokenData.accessToken];
+        
+        //NSLog(@"%@",appDelegate.session.accessTokenData.accessToken);
+        NSString* getURL = [NSString stringWithFormat:@"https://graph.facebook.com/me?fields=id,name&access_token=%@",appDelegate.session.accessTokenData.accessToken];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:getURL]
                                                                cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                            timeoutInterval:10];
         [request setHTTPMethod: @"GET"];
         
-        [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
             
             NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
             
@@ -201,6 +208,8 @@
             NSLog(@"User Name:%@",jsonDictionary[@"name"]);
             
             
+            
+             dispatch_async( dispatch_get_main_queue(), ^{
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *documentsDirectory = [paths objectAtIndex:0];
             NSString *path = [documentsDirectory stringByAppendingPathComponent:USER_PLIST];
@@ -217,15 +226,17 @@
             [userData setObject:jsonDictionary[@"id"] forKey:USER_ID];
             [userData setObject:jsonDictionary[@"name"] forKey:USER_NAME];
             
-
             
             [userData writeToFile: path atomically:YES];
+             });
             
             [huwAppDelegate setFB_ID: jsonDictionary[@"id"]];
             [huwAppDelegate setFB_Name: jsonDictionary[@"name"]];
             
             
              self.navigationItem.rightBarButtonItem.enabled = true;
+            
+        
             [self performSegueWithIdentifier:@"Next" sender:nil];
             
         }];
@@ -234,7 +245,7 @@
         
     } else {
         
-        self.navigationItem.rightBarButtonItem.enabled = true;
+       // self.navigationItem.rightBarButtonItem.enabled = true;
         
     }
 }
@@ -285,17 +296,20 @@
     }
     else if([segue.identifier  isEqual: @"Next"])
     {
+        
         [self.dictionary setObject:self.EntryList forKey:@"tradeDates"];
         [self.dictionary setObject:[huwAppDelegate FB_Name] forKey:@"userName"];
         
-        
-        [self.Database CreateActivity: [huwAppDelegate FB_ID] :self.dictionary];
+        NSString* activityID = [self.Database CreateActivity: [huwAppDelegate FB_ID] :self.dictionary];
         
         UICompleteViewController* controller = segue.destinationViewController;
         
+        controller.ActivityID = activityID;
         controller.share = false;
         
-         // NSLog(@"%@",self.dictionary);
+        NSLog(@"upload done , and performing Segue");
+        
+        
         
     }
     // Get the new view controller using [segue destinationViewController].

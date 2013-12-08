@@ -39,8 +39,10 @@ enum ActivityStatus
 
 -(NSDictionary*)GetTargetOrderList:(NSString*)orderID;
 
+-(void)FinishedBuy:(NSString*)orderID;
 
--(int) CreateActivity:(NSString*)facebookID :(NSDictionary*)ActivityDetail;
+
+-(NSString*) CreateActivity:(NSString*)facebookID :(NSDictionary*)ActivityDetail;
 -(int)JoinActivity:(NSString*)facebookID :(NSString*)ActivityID :(NSDictionary*)Detail;
 
 @optional

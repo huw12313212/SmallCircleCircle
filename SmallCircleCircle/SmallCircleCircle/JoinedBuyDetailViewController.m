@@ -188,6 +188,13 @@ static JoinedBuyDetailViewController* _instance;
 }
 */
 
+-(void)viewWillAppear:(BOOL)animated
+{
+   // NSLog(@"yo?");
+    
+    [self.tableView reloadData];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqual:@"Detail"])
@@ -200,6 +207,7 @@ static JoinedBuyDetailViewController* _instance;
         
         recipe.buyEntry = self.locationArray[path.section][path.row];
         recipe.mode = forHost;
+        [recipe updateData];
         
     }
     

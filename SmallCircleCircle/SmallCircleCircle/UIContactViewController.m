@@ -84,6 +84,8 @@
             NSLog(@"User Name:%@",jsonDictionary[@"name"]);
             
             
+             dispatch_async( dispatch_get_main_queue(), ^{
+            
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *documentsDirectory = [paths objectAtIndex:0];
             NSString *path = [documentsDirectory stringByAppendingPathComponent:USER_PLIST];
@@ -100,9 +102,8 @@
             [userData setObject:jsonDictionary[@"id"] forKey:USER_ID];
             [userData setObject:jsonDictionary[@"name"] forKey:USER_NAME];
             
-            
-            
             [userData writeToFile: path atomically:YES];
+             });
             
             [huwAppDelegate setFB_ID: jsonDictionary[@"id"]];
             [huwAppDelegate setFB_Name: jsonDictionary[@"name"]];

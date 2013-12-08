@@ -7,7 +7,7 @@
 //
 
 #import "RecipeViewController.h"
-
+#import "FakeDB.h"
 
 
 @interface RecipeViewController ()
@@ -167,7 +167,8 @@ long fee;
     }
     else if(section == 2)
     {
-        return 1;
+
+            return 1;
     }
     
     return 0;
@@ -195,7 +196,7 @@ long fee;
             }
             else if(self.mode == forJoin)
             {
-                label.text = self.activityDetail[@"name"];
+                label.text = self.activityDetail[@"userName"];
                 label2.text = self.activityDetail[@"phone"];
             }
         }
@@ -253,6 +254,20 @@ long fee;
     else if(indexPath.section == 2)
     {
         cell = [tableView dequeueReusableCellWithIdentifier:@"status" forIndexPath:indexPath];
+        
+        if(self.buyEntry[@"finished"]==@(YES))
+        {
+            UIButton* button = [cell viewWithTag:1];
+            [button setTitle:@"已交貨" forState:UIControlStateDisabled];
+            button.enabled = false;
+            
+        }
+        else
+        {
+            UIButton* button = [cell viewWithTag:1];
+            button.enabled = true;
+            
+        }
         
     }
     
@@ -319,6 +334,25 @@ long fee;
         return @"undefined";
     }
 }
+
+- (IBAction)Confirm:(id)sender {
+    
+    
+  [sender setTitle:@"已交貨" forState:UIControlStateDisabled];
+    ((UIButton*)sender).enabled = false;
+    
+    
+    NSString* buyid = self.buyEntry[@"buyid"];
+    [self.buyEntry setObject:@(YES) forKey:@"finished"];
+    
+    NSLog(@"hold");
+    [[FakeDB GetDBInstance]FinishedBuy:buyid];
+    
+    
+}
+
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

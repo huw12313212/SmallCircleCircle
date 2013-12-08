@@ -134,7 +134,7 @@ enum AcitivityType
     
     
    // facebook login
-   /*
+   
     huwAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     if (!appDelegate.session.isOpen) {
         // create a fresh session object
@@ -149,7 +149,7 @@ enum AcitivityType
                 
             }];
         }
-    }*/
+    }
     
 
 }
@@ -382,7 +382,7 @@ enum AcitivityType
             
             recipe.activityDetail = detail;
             recipe.buyList = buyList;
-            recipe.buyEntry = buyEntry;
+            recipe.buyEntry = [buyEntry mutableCopy];
    
             
             NSLog(@"data get");

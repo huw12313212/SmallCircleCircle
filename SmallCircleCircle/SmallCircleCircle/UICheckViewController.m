@@ -49,6 +49,9 @@ long myTotal;
             
         }
     }
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -158,7 +161,7 @@ long myTotal;
     
     NSString* feeStyle = self.AcitivityDetail[@"fee"][@"feeStyle"];
     
-    long constraint = self.AcitivityDetail[@"constraint"][@"amount"];
+    int constraint = [self.AcitivityDetail[@"constraint"][@"amount"]intValue];
     float ratio = 0;
     
     if(constraint == 0 )return fee;

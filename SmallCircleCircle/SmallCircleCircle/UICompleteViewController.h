@@ -12,6 +12,7 @@
 
 @property (nonatomic,strong) NSString* ActivityID;
 
+@property (weak, nonatomic) IBOutlet UIButton *URLButton;
 @property bool share;
 
 @end
