@@ -89,7 +89,7 @@
     stepper.value = [self.BuyAmountArray[indexPath.row]integerValue];
     
     nameLabel.text = allItems[indexPath.row][@"name"];
-    price.text =  [allItems[indexPath.row][@"price"]stringValue];
+    price.text =  allItems[indexPath.row][@"price"];
     
     
     

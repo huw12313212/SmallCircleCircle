@@ -373,7 +373,10 @@ enum AcitivityType
         dispatch_async( dispatch_get_main_queue(), ^{
             NSDictionary* detail = [self.Database GetActivityDetail:ActivityID];
             NSArray* buyList = [self.Database GetBuyList:ActivityID];
-            NSDictionary* buyEntry = [self.Database GetMyBuyListInActivity:@"0" :@"0"];
+            
+            
+            
+            NSDictionary* buyEntry = [self.Database GetMyBuyListInActivity:[huwAppDelegate FB_ID] :ActivityID];
             
             recipe.activityDetail = detail;
             recipe.buyList = buyList;

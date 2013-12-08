@@ -8,7 +8,7 @@
 
 #import "FakeDB.h"
 #import <Parse/Parse.h>
-
+#import "huwAppDelegate.h"
 
 
 @implementation FakeDB
@@ -196,7 +196,7 @@ const float FAKE_DELAY = 1000;
       //  [query whereKey:@"userID" equalTo:facebookID];
         PFObject *  queryObject = [query getObjectWithId:activityID];
         result = [[NSMutableDictionary alloc] init];
-        result =     @{
+        result =    [ @{
                                       @"activityID":queryObject[@"ActivityID"],
                                       @"buyList":queryObject[@"Detail"][@"buyList"],
                                       @"phone":queryObject[@"Detail"][@"phone"],
@@ -206,7 +206,7 @@ const float FAKE_DELAY = 1000;
                                       @"location":queryObject[@"Detail"][@"location"],
                                       @"buyid":queryObject.objectId,
                                       @"finished":@(NO),
-                                      };
+                                      } mutableCopy];
          [[self sharedCache] setObject:result forKey:cacheKey];
     }
     return result ;

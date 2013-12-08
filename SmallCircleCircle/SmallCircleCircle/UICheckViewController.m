@@ -137,7 +137,7 @@ long myTotal;
         int price = [allObject[indexPath.row][@"price"]integerValue];
         
         nameLabel.text = allObject[indexPath.row][@"name"];
-        priceLabel.text =  [allObject[indexPath.row][@"price"]stringValue];
+        priceLabel.text =  allObject[indexPath.row][@"price"];
         
         int countToBuy = [self.BuyAmountArray[indexPath.row] integerValue];
         
@@ -158,7 +158,7 @@ long myTotal;
     
     NSString* feeStyle = self.AcitivityDetail[@"fee"][@"feeStyle"];
     
-    long constraint = [self.AcitivityDetail[@"constraint"][@"amount"] longValue];
+    long constraint = self.AcitivityDetail[@"constraint"][@"amount"];
     float ratio = 0;
     
     if(constraint == 0 )return fee;
