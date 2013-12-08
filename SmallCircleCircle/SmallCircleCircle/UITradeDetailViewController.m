@@ -217,8 +217,12 @@
             [userData setObject:jsonDictionary[@"id"] forKey:USER_ID];
             [userData setObject:jsonDictionary[@"name"] forKey:USER_NAME];
             
+
             
             [userData writeToFile: path atomically:YES];
+            
+            [huwAppDelegate setFB_ID: jsonDictionary[@"id"]];
+            [huwAppDelegate setFB_Name: jsonDictionary[@"name"]];
             
             
              self.navigationItem.rightBarButtonItem.enabled = true;
@@ -282,7 +286,10 @@
     else if([segue.identifier  isEqual: @"Next"])
     {
         [self.dictionary setObject:self.EntryList forKey:@"tradeDates"];
-        [self.Database CreateActivity:@"0" :self.dictionary];
+        [self.dictionary setObject:[huwAppDelegate FB_Name] forKey:@"userName"];
+        
+        
+        [self.Database CreateActivity: [huwAppDelegate FB_ID] :self.dictionary];
         
         UICompleteViewController* controller = segue.destinationViewController;
         

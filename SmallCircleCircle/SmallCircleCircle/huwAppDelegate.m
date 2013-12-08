@@ -41,7 +41,8 @@ static NSString* _name = @"guest";
 
 + (void) setOpenId:(NSString*)activityID
 {
-    _isURL = activityID;
+    _isURL = true;
+    _openID = activityID;
 }
 
 + (NSString*) getOpenId

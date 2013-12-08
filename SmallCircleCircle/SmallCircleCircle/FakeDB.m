@@ -107,15 +107,18 @@ const float FAKE_DELAY = 1000;
 {
     
     
+    
+    
     NSLog(@"4");
     PFObject *pfObject = [PFObject objectWithClassName:@"CircleList"];
     pfObject[@"userID"] = facebookID;
+    NSMutableDictionary * detail = ActivityDetail;
+    [detail setObject:@(ASRecruting) forKey:@"status"];
     pfObject[@"Detail"] = ActivityDetail;
-    pfObject[@"status"] = ASRecruting;
     [pfObject save];
-    
+
     NSLog(@"CreateActivity : %@",ActivityDetail);
-    
+    NSLog(@"hello? %@",facebookID);
     return DBsuccess;
 }
 
@@ -174,6 +177,7 @@ const float FAKE_DELAY = 1000;
         PFObject * temp = [pfobject getObjectWithId:activityID];
         result = temp[@"Detail"];
         [result setObject:activityID forKey:@"id"];
+
         [[self sharedCache] setObject:result forKey:cacheKey];
     }
     return result;
@@ -185,20 +189,26 @@ const float FAKE_DELAY = 1000;
 -(NSDictionary*)GetMyBuyListInActivity:(NSString*)facebookID :(NSString*)activityID
 {
     NSLog(@"8");
-    PFQuery * query = [PFQuery queryWithClassName:@"OrderList"];
-  //  [query whereKey:@"userID" equalTo:facebookID];
-    PFObject *  queryObject = [query getObjectWithId:activityID];
-    NSDictionary * result =     @{
-                                  @"activityID":queryObject[@"ActivityID"],
-                                  @"buyList":queryObject[@"Detail"][@"buyList"],
-                                  @"phone":queryObject[@"Detail"][@"phone"],
-                                  @"facebookID":queryObject[@"userID"],
-                                  @"name":@"小熊",
-                                  @"date":queryObject[@"Detail"][@"date"],
-                                  @"location":queryObject[@"Detail"][@"location"],
-                                  @"buyid":queryObject.objectId,
-                                  @"finished":@(NO),
-                                  };
+    NSString *cacheKey = [NSString stringWithFormat:@"GetMyBuyListInActivity-%@", activityID];
+    NSMutableDictionary * result =  [[self sharedCache] objectForKey:cacheKey];
+    if(!result){
+        PFQuery * query = [PFQuery queryWithClassName:@"OrderList"];
+      //  [query whereKey:@"userID" equalTo:facebookID];
+        PFObject *  queryObject = [query getObjectWithId:activityID];
+        result = [[NSMutableDictionary alloc] init];
+        result =     @{
+                                      @"activityID":queryObject[@"ActivityID"],
+                                      @"buyList":queryObject[@"Detail"][@"buyList"],
+                                      @"phone":queryObject[@"Detail"][@"phone"],
+                                      @"facebookID":queryObject[@"userID"],
+                                      @"name":@"小熊",
+                                      @"date":queryObject[@"Detail"][@"date"],
+                                      @"location":queryObject[@"Detail"][@"location"],
+                                      @"buyid":queryObject.objectId,
+                                      @"finished":@(NO),
+                                      };
+         [[self sharedCache] setObject:result forKey:cacheKey];
+    }
     return result ;
 
 }
