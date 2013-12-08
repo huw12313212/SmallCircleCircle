@@ -368,6 +368,7 @@ enum AcitivityType
             NSIndexPath* path =  [self.tableView indexPathForCell:sender];
         
            NSString* ActivityID = self.JoinedAcitivities[path.row][@"id"];
+        NSString* OrderID = self.JoinedAcitivities[path.row][@"orderid"];
         
         
         dispatch_async( dispatch_get_main_queue(), ^{
@@ -375,8 +376,9 @@ enum AcitivityType
             NSArray* buyList = [self.Database GetBuyList:ActivityID];
             
             
+            //for()
             
-            NSDictionary* buyEntry = [self.Database GetMyBuyListInActivity:[huwAppDelegate FB_ID] :ActivityID];
+            NSDictionary* buyEntry = [self.Database GetTargetOrderList:OrderID];
             
             recipe.activityDetail = detail;
             recipe.buyList = buyList;

@@ -95,7 +95,7 @@ const float FAKE_DELAY = 1000;
         NSString * activityID = object[@"Detail"][@"activityID"];
         PFQuery * pfobject = [PFQuery queryWithClassName:@"CircleList"];
         PFObject * detail = [pfobject getObjectWithId:activityID];
-        NSDictionary * temp = @{@"id":object.objectId,@"activityID":detail.objectId,@"name":detail[@"Detail"][@"name"],@"status":detail[@"Detail"][@"status"]};
+        NSDictionary * temp = @{@"orderid":object.objectId,@"id":detail.objectId,@"activityID":detail.objectId,@"name":detail[@"Detail"][@"name"],@"status":detail[@"Detail"][@"status"]};
         [result addObject:temp];
     }
     return result;
@@ -154,7 +154,7 @@ const float FAKE_DELAY = 1000;
         NSMutableArray * buylist = [[NSMutableArray alloc] init];
         for(PFObject *list in buyArray)
         {
-            [buylist addObject:@{@"activityID":list[@"ActivityID"],@"buyList":list[@"Detail"][@"buyList"],@"phone":list[@"Detail"][@"phone"],@"facebook":@"0",@"name":@"包子",@"date":list[@"Detail"][@"date"],@"location":list[@"Detail"][@"location"],@"buyid":list.objectId,@"finished":@"NO"}];
+            [buylist addObject:@{@"activityID":list[@"ActivityID"],@"buyList":list[@"Detail"][@"buyList"],@"phone":list[@"Detail"][@"phone"],@"facebook":list[@"userID"],@"name":list[@"Detail"][@"userName"],@"date":list[@"Detail"][@"date"],@"location":list[@"Detail"][@"location"],@"buyid":list.objectId,@"finished":@"NO"}];
         }
         result = buylist ;
         [[self sharedCache] setObject:result forKey:cacheKey];
@@ -185,6 +185,33 @@ const float FAKE_DELAY = 1000;
     
 }
 
+-(NSDictionary*) GetTargetOrderList : (NSString*) orderID
+{
+    NSLog(@"8");
+    NSString *cacheKey = [NSString stringWithFormat:@"GetMyBuyListInActivity-%@", orderID];
+    NSMutableDictionary * result =  [[self sharedCache] objectForKey:cacheKey];
+    if(!result){
+        PFQuery * query = [PFQuery queryWithClassName:@"OrderList"];
+        //  [query whereKey:@"userID" equalTo:facebookID];
+        PFObject *  queryObject = [query getObjectWithId:orderID];
+        result = [[NSMutableDictionary alloc] init];
+        result =    [ @{
+                        @"activityID":queryObject[@"ActivityID"],
+                        @"buyList":queryObject[@"Detail"][@"buyList"],
+                        @"phone":queryObject[@"Detail"][@"phone"],
+                        @"facebookID":queryObject[@"userID"],
+                        @"name":queryObject[@"Detail"][@"userName"],
+                        @"date":queryObject[@"Detail"][@"date"],
+                        @"location":queryObject[@"Detail"][@"location"],
+                        @"buyid":queryObject.objectId,
+                        @"finished":@(NO),
+                        } mutableCopy];
+        [[self sharedCache] setObject:result forKey:cacheKey];
+    }
+    return result ;
+}
+
+/*
 
 -(NSDictionary*)GetMyBuyListInActivity:(NSString*)facebookID :(NSString*)activityID
 {
@@ -212,6 +239,7 @@ const float FAKE_DELAY = 1000;
     return result ;
 
 }
+ */
 
 
 
