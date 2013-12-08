@@ -992,6 +992,9 @@
                                 <state key="normal" title="邀請Facebook好友">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="InviteClicked:" destination="PQE-C0-fiS" eventType="touchUpInside" id="PRj-aw-kVa"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的團購網址" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kXk-lL-ysW">
                                 <rect key="frame" x="108" y="232" width="105" height="21"/>
