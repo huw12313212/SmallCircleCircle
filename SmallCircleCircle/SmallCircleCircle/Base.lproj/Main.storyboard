@@ -1323,7 +1323,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="evm-hv-DsL" id="xto-jD-NOK"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="領貨預約" id="hKN-Zg-S2s"/>
+                    <tabBarItem key="tabBarItem" title="領貨預約" image="Contact.png" id="hKN-Zg-S2s"/>
                     <navigationItem key="navigationItem" id="i6X-6v-COS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="McH-Ql-eeu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1430,7 +1430,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="GXQ-Gf-uh4" id="mEa-1e-l9d"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="訂貨資訊" id="ukE-4I-fIz"/>
+                    <tabBarItem key="tabBarItem" title="訂貨資訊" image="Box_Closed.png" id="ukE-4I-fIz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZe-Nb-IXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1594,6 +1594,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="-2034" y="-432"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Box_Closed.png" width="23" height="27"/>
+        <image name="Contact.png" width="25" height="25"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
