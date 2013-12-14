@@ -592,7 +592,7 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2013/12/22 上午11:59:59" borderStyle="roundedRect" placeholder="2013/12/22 上午11:59:59" minimumFontSize="17" id="UD1-Gm-cZi">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2013/12/22 11:59:59" borderStyle="roundedRect" placeholder="2013/12/22 11:59:59" minimumFontSize="17" id="UD1-Gm-cZi">
                                         <rect key="frame" x="96" y="222" width="204" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">

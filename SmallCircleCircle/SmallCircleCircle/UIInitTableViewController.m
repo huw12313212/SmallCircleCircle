@@ -338,8 +338,8 @@ enum AcitivityType
 
     statusLabel.text = statusStr;
 
-    //UILongPressGestureRecognizer * longPressGesture =   [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(cellLongPress:)];
-   // [cell addGestureRecognizer:longPressGesture];
+    UILongPressGestureRecognizer * longPressGesture =   [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(cellLongPress:)];
+    [cell addGestureRecognizer:longPressGesture];
 
     
     return cell;
@@ -451,7 +451,6 @@ enum AcitivityType
     }
     else if([segue.identifier isEqual:@"Detail"])
     {
-        
         DetailPageViewController* detail =  segue.destinationViewController;
         
         if(self.path.section == 0)
@@ -469,13 +468,13 @@ enum AcitivityType
          DetailPageViewController* detail =  segue.destinationViewController;
           NSIndexPath* path =  [self.tableView indexPathForCell:sender];
         
-        if(self.path.section == 0)
+        if(path.section == 0)
         {
-            detail.ActivityDetail = self.CreatedAcitivities[self.path.row];
+            detail.ActivityDetail = self.CreatedAcitivities[path.row];
         }
-        else if(self.path.section == 1)
+        else if(path.section == 1)
         {
-            detail.ActivityDetail = self.JoinedAcitivities[self.path.row];
+            detail.ActivityDetail = self.JoinedAcitivities[path.row];
         }
     }
 }

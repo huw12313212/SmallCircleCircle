@@ -235,10 +235,16 @@ UIGestureRecognizer *tapper;
     UIDatePicker *picker = (UIDatePicker *)sender;
     NSString *dateString;
     
-    dateString = [NSDateFormatter localizedStringFromDate:[picker date]
-                                                dateStyle:NSDateFormatterMediumStyle
-                                                timeStyle:NSDateFormatterMediumStyle];
+
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+
+    
+    //dateString = [NSDateFormatter localizedStringFromDate:[picker date]
+                                               // dateStyle:NSDateFormatterMediumStyle
+                                               // timeStyle:NSDateFormatterMediumStyle];
+     dateString = [dateFormatter stringFromDate:[picker date]];
     [self.ExpireDate setText:dateString];
 }
 

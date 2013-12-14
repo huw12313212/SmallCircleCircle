@@ -115,10 +115,15 @@ const float FAKE_DELAY = 1000;
     NSMutableDictionary * detail = ActivityDetail;
     [detail setObject:@(ASRecruting) forKey:@"status"];
     pfObject[@"Detail"] = ActivityDetail;
+    pfObject[@"num"] = @(0);
     [pfObject save];
     
     //NSLog(@"ActivityID : %@",pfObject.objectId);
-
+//    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+//    [NSDateFormatter ]
+//    NSDate* date = [dateFormatter dateFromString:ActivityDetail[@"expireDate"]];
+//
+//    NSLog(@"Date : %@", date);
     NSLog(@"CreateActivity : %@",ActivityDetail);
     NSLog(@"hello? %@",facebookID);
     return pfObject.objectId;
@@ -250,6 +255,14 @@ const float FAKE_DELAY = 1000;
 
 }
  */
+
+-(void)DeleteActivity:(NSString*)activityID
+{
+    NSLog(@"9");
+    PFQuery * pfobject = [PFQuery queryWithClassName:@"CircleList"];
+    PFObject* result = [pfobject getObjectWithId:activityID];
+    [result delete];
+}
 
 
 
