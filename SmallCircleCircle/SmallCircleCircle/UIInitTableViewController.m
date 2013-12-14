@@ -194,9 +194,27 @@ enum AcitivityType
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    switch (indexPath.section)
+    {
+        case Created:
+            
+            
+            return UITableViewCellEditingStyleDelete;
+            
+            break;
+        case Join:
+            
+            return UITableViewCellEditingStyleNone;
+            break;
+        default:
+            
+            break;
+    }
+    
 
-   return UITableViewCellEditingStyleDelete;
-
+     return UITableViewCellEditingStyleNone;
+    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
