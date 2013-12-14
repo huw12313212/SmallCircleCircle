@@ -217,16 +217,35 @@ enum AcitivityType
         
         if(indexPath.section == 0)
         {
-        
+            
+            NSString* ActivityID = self.CreatedAcitivities[indexPath.row][@"id"];
+            
+            dispatch_async( dispatch_get_main_queue(), ^{
+            [self.Database DeleteActivity:ActivityID];
+                              });
+            
             [self.CreatedAcitivities removeObjectAtIndex:indexPath.row];
+            
+            
+            
         }
         else if(indexPath.section == 1)
         {
+            
+            NSString* ActivityID = self.JoinedAcitivities[indexPath.row][@"id"];
+            
+            
+            dispatch_async( dispatch_get_main_queue(), ^{
+            [self.Database DeleteActivity:ActivityID];
+            });
+
             
             [self.JoinedAcitivities removeObjectAtIndex:indexPath.row];
         }
         
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        
     }
 }
 
@@ -278,7 +297,7 @@ enum AcitivityType
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary* target;
-    NSString* statusStr;
+    NSMutableAttributedString* statusStr;
     NSString* cellType;
     
     switch (indexPath.section)
@@ -304,13 +323,18 @@ enum AcitivityType
     
     switch ([statusNumber intValue]) {
         case ASRecruting:
-            statusStr = @"招募中";
+            //statusStr = @"招募中";
+           // statusLabel
              cellType = @"OtherActivity";
+            // [statusStr setTextColor:[UIColor blueColor]];
+            
+            statusStr = [[NSMutableAttributedString alloc] initWithString:@"招募中"];
+            [statusStr addAttribute:NSForegroundColorAttributeName value: [UIColor colorWithRed:72/255.0f green:162/255.0f blue:36/255.0f alpha:1.0f] range:NSMakeRange(0,3)];
+            
             break;
         case ASSuccess:
-            statusStr = @"成功";
-            
-            
+            statusStr = [[NSMutableAttributedString alloc] initWithString:@"成功"];
+            [statusStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:24/255.0f green:127/255.0f blue:237/255.0f alpha:1.0f] range:NSMakeRange(0,2)];
             if(indexPath.section == Created)
             {
                 cellType = @"SuccessActivity";
@@ -322,8 +346,8 @@ enum AcitivityType
             
             break;
         case ASFailed:
-            statusStr = @"流團";
-             cellType = @"OtherActivity";
+            statusStr = [[NSMutableAttributedString alloc] initWithString:@"流團"];
+            [statusStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,2)];
             break;
         default:
             break;
@@ -336,7 +360,7 @@ enum AcitivityType
     
     nameLabel.text = target[@"name"];
 
-    statusLabel.text = statusStr;
+    statusLabel.attributedText = statusStr;
 
     UILongPressGestureRecognizer * longPressGesture =   [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(cellLongPress:)];
     [cell addGestureRecognizer:longPressGesture];

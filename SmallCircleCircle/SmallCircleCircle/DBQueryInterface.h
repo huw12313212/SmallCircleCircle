@@ -45,6 +45,8 @@ enum ActivityStatus
 -(NSString*) CreateActivity:(NSString*)facebookID :(NSDictionary*)ActivityDetail;
 -(int)JoinActivity:(NSString*)facebookID :(NSString*)ActivityID :(NSDictionary*)Detail;
 
+-(void)DeleteActivity:(NSString*)activityID;
+
 @optional
 -(NSDictionary*)GetMyBuyListInActivity:(NSString*)facebookID :(NSString*)activityID;
 

@@ -94,9 +94,15 @@ const float FAKE_DELAY = 1000;
     for (PFObject *object in objects) {
         NSString * activityID = object[@"Detail"][@"activityID"];
         PFQuery * pfobject = [PFQuery queryWithClassName:@"CircleList"];
-        PFObject * detail = [pfobject getObjectWithId:activityID];
-        NSDictionary * temp = @{@"orderid":object.objectId,@"id":detail.objectId,@"activityID":detail.objectId,@"name":detail[@"Detail"][@"name"],@"status":detail[@"Detail"][@"status"]};
-        [result addObject:temp];
+        if(!pfobject)
+        {
+            continue;
+        }
+        else{
+            PFObject * detail = [pfobject getObjectWithId:activityID];
+            NSDictionary * temp = @{@"orderid":object.objectId,@"id":detail.objectId,@"activityID":detail.objectId,@"name":detail[@"Detail"][@"name"],@"status":detail[@"Detail"][@"status"]};
+            [result addObject:temp];
+        }
     }
     return result;
     
@@ -105,10 +111,7 @@ const float FAKE_DELAY = 1000;
 
 -(NSString*) CreateActivity:(NSString*)facebookID :(NSDictionary*)ActivityDetail
 {
-    
-    
-    
-    
+
     NSLog(@"4");
     PFObject *pfObject = [PFObject objectWithClassName:@"CircleList"];
     pfObject[@"userID"] = facebookID;
@@ -117,13 +120,6 @@ const float FAKE_DELAY = 1000;
     pfObject[@"Detail"] = ActivityDetail;
     pfObject[@"num"] = @(0);
     [pfObject save];
-    
-    //NSLog(@"ActivityID : %@",pfObject.objectId);
-//    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-//    [NSDateFormatter ]
-//    NSDate* date = [dateFormatter dateFromString:ActivityDetail[@"expireDate"]];
-//
-//    NSLog(@"Date : %@", date);
     NSLog(@"CreateActivity : %@",ActivityDetail);
     NSLog(@"hello? %@",facebookID);
     return pfObject.objectId;
