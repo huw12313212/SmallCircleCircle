@@ -19,8 +19,8 @@
 @interface UIInitTableViewController ()
 
 @property (strong,nonatomic)id <DBQueryInterface> Database;
-@property (strong,nonatomic)NSArray* CreatedAcitivities;
-@property (strong,nonatomic)NSArray* JoinedAcitivities;
+@property (strong,nonatomic)NSMutableArray* CreatedAcitivities;
+@property (strong,nonatomic)NSMutableArray* JoinedAcitivities;
 @property (strong,nonatomic)NSIndexPath* path;
 
 @end
@@ -42,6 +42,8 @@ enum AcitivityType
         
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add:)];
+        
+        
         UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:@"Share" action:@selector(share:)];
         UIMenuItem *menuItem2 = [[UIMenuItem alloc] initWithTitle:@"Detail" action:@selector(detail:)];
         [[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:menuItem,menuItem2,nil] ];
@@ -100,8 +102,8 @@ enum AcitivityType
         dispatch_async( dispatch_get_main_queue(), ^{
             
             self.Database = [FakeDB GetDBInstance];
-            self.CreatedAcitivities = [self.Database GetCreatedActivity : [huwAppDelegate FB_ID]];
-            self.JoinedAcitivities = [self.Database GetJoinedActivity : [huwAppDelegate FB_ID]];
+            self.CreatedAcitivities = [[self.Database GetCreatedActivity : [huwAppDelegate FB_ID]] mutableCopy];
+            self.JoinedAcitivities = [[self.Database GetJoinedActivity : [huwAppDelegate FB_ID]] mutableCopy];
             
             [self.tableView reloadData];
         });
@@ -188,6 +190,46 @@ enum AcitivityType
     [self.navigationController pushViewController:controller animated:YES];
 
 }
+
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+   return UITableViewCellEditingStyleDelete;
+
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+
+        return YES;
+    
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        
+        //[self.EntryList removeObjectAtIndex:indexPath.row];
+        
+        //self.Database
+        
+        if(indexPath.section == 0)
+        {
+        
+            [self.CreatedAcitivities removeObjectAtIndex:indexPath.row];
+        }
+        else if(indexPath.section == 1)
+        {
+            
+            [self.JoinedAcitivities removeObjectAtIndex:indexPath.row];
+        }
+        
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
 
 
 -(void) detail:(id) sender {
@@ -296,8 +338,8 @@ enum AcitivityType
 
     statusLabel.text = statusStr;
 
-    UILongPressGestureRecognizer * longPressGesture =   [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(cellLongPress:)];
-    [cell addGestureRecognizer:longPressGesture];
+    //UILongPressGestureRecognizer * longPressGesture =   [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(cellLongPress:)];
+   // [cell addGestureRecognizer:longPressGesture];
 
     
     return cell;
@@ -421,6 +463,20 @@ enum AcitivityType
                detail.ActivityDetail = self.JoinedAcitivities[self.path.row];
         }
         
+    }
+    else if([segue.identifier isEqualToString:@"NormalDetail"])
+    {
+         DetailPageViewController* detail =  segue.destinationViewController;
+          NSIndexPath* path =  [self.tableView indexPathForCell:sender];
+        
+        if(self.path.section == 0)
+        {
+            detail.ActivityDetail = self.CreatedAcitivities[self.path.row];
+        }
+        else if(self.path.section == 1)
+        {
+            detail.ActivityDetail = self.JoinedAcitivities[self.path.row];
+        }
     }
 }
 

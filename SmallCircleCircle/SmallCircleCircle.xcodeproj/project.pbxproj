@@ -19,6 +19,7 @@
 		8A62C25D18379EB40039E173 /* UIItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A62C25C18379EB40039E173 /* UIItemViewController.m */; };
 		8A62C2601837A9380039E173 /* UINewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A62C25F1837A9380039E173 /* UINewItemViewController.m */; };
 		8A6360A3185208CE00D175F8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6360A2185208CE00D175F8 /* Parse.framework */; };
+		8A6ABAF5185C36CE008BFA88 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6ABAF4185C36CE008BFA88 /* Social.framework */; };
 		8A7F1360183A02A400F93D52 /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F135F183A02A400F93D52 /* TabbarViewController.m */; };
 		8A7F1363183A112100F93D52 /* TotalBuyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F1362183A112100F93D52 /* TotalBuyTableViewController.m */; };
 		8AAC3E4A183749710045391A /* UICreateActivityInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAC3E49183749710045391A /* UICreateActivityInfoViewController.m */; };
@@ -87,6 +88,7 @@
 		8A62C25F1837A9380039E173 /* UINewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINewItemViewController.m; sourceTree = "<group>"; };
 		8A6360A1185207B800D175F8 /* NTU_Class_Wildcard.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = NTU_Class_Wildcard.mobileprovision; sourceTree = "<group>"; };
 		8A6360A2185208CE00D175F8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		8A6ABAF4185C36CE008BFA88 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		8A7F135E183A02A400F93D52 /* TabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarViewController.h; sourceTree = "<group>"; };
 		8A7F135F183A02A400F93D52 /* TabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarViewController.m; sourceTree = "<group>"; };
 		8A7F1361183A112100F93D52 /* TotalBuyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalBuyTableViewController.h; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A6ABAF5185C36CE008BFA88 /* Social.framework in Frameworks */,
 				8AD4607E18421F8A00FF141F /* libz.1.1.3.dylib in Frameworks */,
 				8AD4608818421FAB00FF141F /* SystemConfiguration.framework in Frameworks */,
 				8AD4608618421FA400FF141F /* StoreKit.framework in Frameworks */,
@@ -264,6 +267,7 @@
 		8AEA1E331835E6F2003EA73D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A6ABAF4185C36CE008BFA88 /* Social.framework */,
 				8A1200BA185307FC004BB6A8 /* FacebookSDK.framework */,
 				8A6360A2185208CE00D175F8 /* Parse.framework */,
 				8A6360A1185207B800D175F8 /* NTU_Class_Wildcard.mobileprovision */,
