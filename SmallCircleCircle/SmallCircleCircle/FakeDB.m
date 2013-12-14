@@ -94,12 +94,13 @@ const float FAKE_DELAY = 1000;
     for (PFObject *object in objects) {
         NSString * activityID = object[@"Detail"][@"activityID"];
         PFQuery * pfobject = [PFQuery queryWithClassName:@"CircleList"];
-        if(!pfobject)
+        PFObject * detail = [pfobject getObjectWithId:activityID];
+        if(!detail)
         {
             continue;
         }
         else{
-            PFObject * detail = [pfobject getObjectWithId:activityID];
+            
             NSDictionary * temp = @{@"orderid":object.objectId,@"id":detail.objectId,@"activityID":detail.objectId,@"name":detail[@"Detail"][@"name"],@"status":detail[@"Detail"][@"status"]};
             [result addObject:temp];
         }

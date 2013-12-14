@@ -366,6 +366,8 @@ enum AcitivityType
         case ASFailed:
             statusStr = [[NSMutableAttributedString alloc] initWithString:@"流團"];
             [statusStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,2)];
+            cellType = @"OtherActivity";
+
             break;
         default:
             break;
