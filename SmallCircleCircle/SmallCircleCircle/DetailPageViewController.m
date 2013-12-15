@@ -184,23 +184,10 @@
 
 - (void)viewDidLoad
 {
-    //self sett = UIPageViewControllerTransitionStyleScroll;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(Action:)];
     
-    //UIButton* ExitButton = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
-    
-   // ExitButton.titleLabel.text = @"Exit";
-  //  [self.view addSubview:ExitButton];
-    
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(Action:)];
-    
-    
-    
-    
-    
-    
-    FakeDB* db = [FakeDB GetDBInstance];
     [huwAppDelegate setOpenId:self.ActivityDetail[@"id"]];
-    self.ActivityDetail = [db GetActivityDetail:self.ActivityDetail[@"id"]];
+
     self.dataSource = self;
 
     
@@ -210,17 +197,31 @@
    
     UIItemViewController *ItemsController = [self.storyboard instantiateViewControllerWithIdentifier:@"Items"];
     ItemsController.Creating = false;
-    ItemsController.ItemList = self.ActivityDetail[@"items"];
+    
     
     UITradeDetailViewController *DatesController = [self.storyboard instantiateViewControllerWithIdentifier:@"Dates"];
     DatesController.Creating = false;
+    
+    
+
+    self.DetailControllers = @[controller,ItemsController,DatesController];
+    
+    
+    
+    dispatch_async( dispatch_get_main_queue(), ^{
+        
+    FakeDB* db = [FakeDB GetDBInstance];
+   
+    self.ActivityDetail = [db GetActivityDetail:self.ActivityDetail[@"id"]];
+    
+    ItemsController.ItemList = self.ActivityDetail[@"items"];
     DatesController.EntryList = self.ActivityDetail[@"tradeDates"];
     
     
     [ItemsController updateData];
     [DatesController updateData];
-    
-    self.DetailControllers = @[controller,ItemsController,DatesController];
+        
+    });
     
     
     

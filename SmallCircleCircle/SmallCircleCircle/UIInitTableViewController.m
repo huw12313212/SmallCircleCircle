@@ -114,8 +114,45 @@ enum AcitivityType
 
 - (void)viewDidLoad
 {
-
+    [self updateView];
     
+    if([huwAppDelegate dirty])
+    {
+        
+        [huwAppDelegate setDirty:false];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *path = [documentsDirectory stringByAppendingPathComponent:USER_PLIST];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        if (![fileManager fileExistsAtPath: path])
+        {
+            path = [documentsDirectory stringByAppendingPathComponent: [NSString stringWithFormat: USER_PLIST] ];
+        }
+        
+        
+        NSMutableDictionary *data;
+        
+        if ([fileManager fileExistsAtPath: path])
+        {
+            data = [[NSMutableDictionary alloc] initWithContentsOfFile: path];
+            
+            NSLog(@"id :%@, name:%@",data[USER_ID],data[USER_NAME]);
+            
+            [huwAppDelegate setFB_ID:data[USER_ID]];
+            [huwAppDelegate setFB_Name:data[USER_NAME]];
+            
+           // dispatch_async( dispatch_get_main_queue(), ^{
+                
+                self.Database = [FakeDB GetDBInstance];
+                self.CreatedAcitivities = [[self.Database GetCreatedActivity : [huwAppDelegate FB_ID]] mutableCopy];
+                self.JoinedAcitivities = [[self.Database GetJoinedActivity : [huwAppDelegate FB_ID]] mutableCopy];
+                
+                [self.tableView reloadData];
+            //});
+        }
+    }
     
    /* else
     {
@@ -416,6 +453,7 @@ enum AcitivityType
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    
     switch (section)
     {
         case Created:

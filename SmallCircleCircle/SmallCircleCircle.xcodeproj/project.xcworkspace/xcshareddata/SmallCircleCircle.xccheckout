@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>D169BA54-E9F5-4550-BC3C-374FD3D69460</string>
+	<string>A505F09B-9DB4-4FA6-9A3B-6D8769439B51</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SmallCircleCircle</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>65D3C72B-868F-42DE-B9F4-6121B78A7AF4</key>
-		<string>https://github.com/huw12313212/SmallCircleCircle.git</string>
+		<key>01D6916B-0DF8-4FB2-9A9C-5CA30CFCBB3E</key>
+		<string>https://github.com/huw12313212/SmallCircleCircle</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SmallCircleCircle/SmallCircleCircle.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>65D3C72B-868F-42DE-B9F4-6121B78A7AF4</key>
+		<key>01D6916B-0DF8-4FB2-9A9C-5CA30CFCBB3E</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/huw12313212/SmallCircleCircle.git</string>
+	<string>https://github.com/huw12313212/SmallCircleCircle</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>65D3C72B-868F-42DE-B9F4-6121B78A7AF4</string>
+	<string>01D6916B-0DF8-4FB2-9A9C-5CA30CFCBB3E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>65D3C72B-868F-42DE-B9F4-6121B78A7AF4</string>
+			<string>01D6916B-0DF8-4FB2-9A9C-5CA30CFCBB3E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SmallCircleCircle</string>
 		</dict>
