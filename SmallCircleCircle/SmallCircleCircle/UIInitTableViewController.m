@@ -115,6 +115,8 @@ enum AcitivityType
 - (void)viewDidLoad
 {
 
+    
+    
    /* else
     {
         // If the file doesn’t exist, create an empty dictionary

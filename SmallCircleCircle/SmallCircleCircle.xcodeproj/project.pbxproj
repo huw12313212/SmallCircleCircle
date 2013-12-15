@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		762F97E6185D8C5B001B357C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762F97E5185D8C5B001B357C /* Parse.framework */; };
+		762F97E8185D8C9F001B357C /* SCC-launchImage-640*960.png in Resources */ = {isa = PBXBuildFile; fileRef = 762F97E7185D8C9F001B357C /* SCC-launchImage-640*960.png */; };
+		762F97EA185D8CAB001B357C /* SCC-launchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 762F97E9185D8CAB001B357C /* SCC-launchImage.png */; };
 		8A1200BB185307FC004BB6A8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1200BA185307FC004BB6A8 /* FacebookSDK.framework */; };
 		8A18A81C1839233500B977B2 /* UIEngagedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18A81B1839233500B977B2 /* UIEngagedViewController.m */; };
 		8A18A81F18392FB100B977B2 /* UIContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18A81E18392FB100B977B2 /* UIContactViewController.m */; };
@@ -72,6 +75,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		762F97E5185D8C5B001B357C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		762F97E7185D8C9F001B357C /* SCC-launchImage-640*960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SCC-launchImage-640*960.png"; sourceTree = "<group>"; };
+		762F97E9185D8CAB001B357C /* SCC-launchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SCC-launchImage.png"; sourceTree = "<group>"; };
 		8A1200BA185307FC004BB6A8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		8A18A81A1839233500B977B2 /* UIEngagedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIEngagedViewController.h; sourceTree = "<group>"; };
 		8A18A81B1839233500B977B2 /* UIEngagedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIEngagedViewController.m; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 				8AD4608618421FA400FF141F /* StoreKit.framework in Frameworks */,
 				8AD4608418421F9F00FF141F /* Security.framework in Frameworks */,
 				8AD4608218421F9800FF141F /* QuartzCore.framework in Frameworks */,
+				762F97E6185D8C5B001B357C /* Parse.framework in Frameworks */,
 				8AD4608018421F9200FF141F /* MobileCoreServices.framework in Frameworks */,
 				8A6360A3185208CE00D175F8 /* Parse.framework in Frameworks */,
 				8AEA1E371835E6F2003EA73D /* CoreGraphics.framework in Frameworks */,
@@ -191,6 +198,8 @@
 		8A6ABAF6185C4D9D008BFA88 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				762F97E9185D8CAB001B357C /* SCC-launchImage.png */,
+				762F97E7185D8C9F001B357C /* SCC-launchImage-640*960.png */,
 				8A8BD1AE185D8A2D00563461 /* icon2.png */,
 				8A6ABB01185C5348008BFA88 /* Box_Closed@2x.png */,
 				8A6ABAFF185C5343008BFA88 /* Box_Closed.png */,
@@ -295,6 +304,7 @@
 		8AEA1E331835E6F2003EA73D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				762F97E5185D8C5B001B357C /* Parse.framework */,
 				8A6ABAF4185C36CE008BFA88 /* Social.framework */,
 				8A1200BA185307FC004BB6A8 /* FacebookSDK.framework */,
 				8A6360A2185208CE00D175F8 /* Parse.framework */,
@@ -447,8 +457,10 @@
 			files = (
 				8A6ABAFC185C52F5008BFA88 /* Contact.png in Resources */,
 				8A8BD1AF185D8A2D00563461 /* icon2.png in Resources */,
+				762F97EA185D8CAB001B357C /* SCC-launchImage.png in Resources */,
 				8AEA1E4D1835E6F2003EA73D /* Images.xcassets in Resources */,
 				8A6ABAF8185C4F59008BFA88 /* human.png in Resources */,
+				762F97E8185D8C9F001B357C /* SCC-launchImage-640*960.png in Resources */,
 				8A6ABB02185C5348008BFA88 /* Box_Closed@2x.png in Resources */,
 				8A6ABB00185C5343008BFA88 /* Box_Closed.png in Resources */,
 				8A6ABAFE185C5300008BFA88 /* Contact@2x.png in Resources */,
@@ -625,6 +637,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/huw12313212/SmallCircleCircle/SmallCircleCircle,
+					"/Users/mikeva/Google\\ 雲端硬碟/研一/05行動電話程式設計/SmallCircleCircle-master/SmallCircleCircle/SmallCircleCircle",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmallCircleCircle/SmallCircleCircle-Prefix.pch";
@@ -643,6 +656,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/huw12313212/SmallCircleCircle/SmallCircleCircle,
+					"/Users/mikeva/Google\\ 雲端硬碟/研一/05行動電話程式設計/SmallCircleCircle-master/SmallCircleCircle/SmallCircleCircle",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmallCircleCircle/SmallCircleCircle-Prefix.pch";
