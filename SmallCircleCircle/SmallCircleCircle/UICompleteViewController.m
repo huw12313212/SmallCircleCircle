@@ -46,7 +46,7 @@
 
     [FBWebDialogs
      presentRequestsDialogModallyWithSession:appDelegate.session
-     message:[NSString stringWithFormat:@"來參加我的團購：scc://%@", self.ActivityID]
+     message:[NSString stringWithFormat:@"來參加我的團購：http://eva0919.github.io/SCC/index?url=SCC:\\\\%@", self.ActivityID]
      title:@"團購小圈圈"
      parameters:nil
      handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
@@ -137,7 +137,7 @@
     
     
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.URL =[NSURL URLWithString:self.URLButton.titleLabel.text];
+    pasteboard.string =self.URLButton.titleLabel.text;
     
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"複製完成" message:@"已複製連結，請分享給您的團購好友。" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
@@ -158,7 +158,7 @@
     }
     
 
-    [self.URLButton setTitle:[NSString stringWithFormat:@"scc://%@", self.ActivityID] forState:UIControlStateNormal];
+    [self.URLButton setTitle:[NSString stringWithFormat:@"http://eva0919.github.io/SCC/index?url=SCC:\\\\%@", self.ActivityID] forState:UIControlStateNormal];
      //[self.navigationController setNavigationBarHidden:YES animated:YES];
     
     self.Database = [FakeDB GetDBInstance];

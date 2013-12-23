@@ -72,7 +72,7 @@
         
         //NSLog(@"%@",self.ActivityDetail);
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-        pasteboard.URL =[NSURL URLWithString:[NSString stringWithFormat:@"scc://%@", self.ActivityDetail[@"id"]]];
+        pasteboard.string =[NSString stringWithFormat:@"http://eva0919.github.io/SCC/index?url=SCC:\\\\%@", self.ActivityDetail[@"id"]];
         
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"複製完成" message:@"已複製連結，請分享給您的團購好友。" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
@@ -86,7 +86,7 @@
 
         [FBWebDialogs
          presentRequestsDialogModallyWithSession:appDelegate.session
-         message:[NSString stringWithFormat:@"來參加我的團購：scc://%@", self.ActivityDetail[@"id"]]
+         message:[NSString stringWithFormat:@"來參加我的團購：http://eva0919.github.io/SCC/index?url=SCC:\\\\%@", self.ActivityDetail[@"id"]]
          title:@"團購小圈圈"
          parameters:nil
          handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
@@ -155,12 +155,12 @@
             SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         
         
-        NSString* text = [NSString stringWithFormat:@"來參加我的團購小圈圈！scc://%@",self.ActivityDetail[@"id"]];
+        NSString* text = [NSString stringWithFormat:@"來參加我的團購小圈圈！http://eva0919.github.io/SCC/index?url=SCC:\\\\%@",self.ActivityDetail[@"id"]];
         
             [mySLComposerSheet setInitialText:text];
             
             
-            [mySLComposerSheet addURL:[NSURL URLWithString:[NSString stringWithFormat:@"scc://%@", self.ActivityDetail[@"id"]]]];
+            [mySLComposerSheet addURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://eva0919.github.io/SCC/index?url=SCC:\\\\%@", self.ActivityDetail[@"id"]]]];
             
             [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
                 
